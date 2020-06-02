@@ -1,0 +1,55 @@
+body{
+  font-family: 'Lato', sans-serif;
+  margin:0;
+  padding:0;
+  background-color: #F0F0DD;
+}
+
+#contacttitle{
+  position: absolute;
+  font-size: 2vw;
+  top:6.5vw;
+  left:44vw;
+}
+.contactinput{
+  position: relative;
+  border:2px solid #111;
+  width:30vw;
+  margin-left:35vw;
+  padding:.5vw;
+  margin-bottom: 1vw;
+  top:12vw;
+  background-color: #F0F0E6;
+  font-size: 1.5vw;
+}
+
+#mailver{
+  position: absolute;
+  top:20vw;
+}
+
+#contacttextinput{
+  height:2vw;
+}
+
+#contacttextarea{
+  height:11vw;
+}
+
+#contactbutton{
+  position: relative;
+  width:10vw;
+  height:3vw;
+  border:none;
+  margin-left:45vw;
+  margin-top:12vw;
+  background-color: #F0F0E6;
+  border:2px solid #111;
+  font-size:1.5vw;
+ font-weight: 200;
+}
+
+.footer{
+  position: relative;
+  top:2.1vw;
+  }

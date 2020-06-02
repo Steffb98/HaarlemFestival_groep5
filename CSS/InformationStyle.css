@@ -1,0 +1,56 @@
+body{
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
+.EditTabs{
+  position: absolute;
+  left: 15vw;
+  top: 11vw;
+  width: 5vw;
+}
+
+.EditTabs input[type="submit"]{
+  color: #fff;
+  padding: 1vw;
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  border: none;
+  background-color: #01ABAA;
+  margin-bottom: 1vw;
+  width: 12vw;
+}
+
+.EditPanel{
+  width: 50vw;
+  position: absolute;
+  left: 30vw;
+  top: 11vw;
+  background-color: #fff;
+  margin-bottom: 7vw;
+}
+
+.EditPanel form span{
+  color: #01ABAA;
+  padding-left: 1vw;
+}
+
+.EditPanel form textarea{
+  margin-left: 1vw;
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
+.EditPanel form input[type="Submit"]{
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  padding: 1vw;
+  margin: 1vw;
+  background-color: #01ABAA;
+  color: #fff;
+  border: none;
+}

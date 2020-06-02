@@ -1,0 +1,184 @@
+html{
+  scroll-behavior: smooth;
+}
+
+video{
+  position: relative;
+  width:98.9vw;
+}
+
+#buttonscrolldown{
+  width:5vw;
+  height: 5vw;
+  top:40vw;
+  left:47.5vw;
+  position: absolute;
+}
+
+.video{
+  width:90vw;
+  height:50vw;
+}
+
+.background{
+  background-color: #F0F0DD;
+  height:235vw;
+}
+
+.section{
+  position: relative;
+  background-size: cover;
+  width:60vw;
+  height:30vw;
+  margin-left:20vw;
+}
+
+#introHP{
+  position: absolute;
+  background-image: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url("../Assets/IntroHP.png");
+  color:#fff;
+  top:66vw;
+}
+
+.introtext{
+  position:relative;
+  margin:0;
+  top:10vw;
+  text-align: center;
+  margin-bottom:.7vw;
+}
+
+#introHF{
+  font-size:3vw;
+  font-weight: 400;
+}
+
+#dateHF, #introtext{
+  font-size: 2vw;
+  font-weight: 300;
+}
+
+.section{
+  position: absolute;
+  color:#fff;
+}
+
+.textcontainer{
+    width:50%;
+    height:30vw;
+    background-color: #282828;
+    position: absolute;
+}
+
+.imgcontainer{
+  position: absolute;
+  background-size: cover;
+  width:30vw;
+  height:30vw;
+}
+
+.sectiontext{
+  font-weight:300;
+  color:#fff;
+}
+
+.sectionlink{
+  position: absolute;
+  text-decoration: none;
+  color:#fff;
+  margin-left:20vw;
+  bottom:2vw;
+}
+
+#sectiontitle{
+  text-align: center;
+  font-size:3vw;
+}
+
+#sectiontext{
+margin:0 4vw ;
+font-size:1.8vw;
+}
+
+#jazzHP{
+  top: 100vw;
+}
+
+#jazzimg{
+  background-image: url("../Assets/JazzHP.jpg");
+  left: 30vw;
+}
+
+#danceHP{
+  top:135vw;
+}
+
+#danceimg{
+  background-image: url("../Assets/danceHP.png");
+}
+
+#dancetextcontainer{
+  left:30vw;
+}
+
+#foodHP{
+  top:170vw;
+}
+
+#foodimg{
+  left:30vw;
+  background-image: url("../Assets/FoodHP.png")
+}
+
+.updateblock{
+  position:absolute;
+  left:20vw;
+  width:60vw;
+}
+
+#datetexthalf{
+  position: absolute;
+  margin-left:18vw;
+  bottom:2vw;
+  font-size: 1.5vw;
+}
+
+#datetextfull{
+  position: absolute;
+  margin-left:50vw;
+  bottom:2vw;
+  font-size: 1.5vw;
+}
+
+#updatesheader{
+  top: 205vw;
+  height:8vw;
+  background:#282828;
+}
+
+.halfupdates{
+  position: absolute;
+  background: #282828;
+  width: 27.5vw;
+  height:30vw;
+}
+
+#halfupdatecontainer{
+  top:216vw;
+}
+
+#halfupdate2{
+  left:32.5vw;
+}
+
+#updatetext{
+margin:0 4vw ;
+font-size:1.5vw;
+}
+
+#fullupdatecontainer{
+  top:250vw;
+  position: absolute;
+  height:30vw;
+  background-color: #282828;
+}

@@ -1,0 +1,162 @@
+body{
+  background-image: linear-gradient(90deg, #01ABAA, #55F3FF);
+}
+
+form{
+  position: absolute;
+  background-color: white;
+  left: calc(100% / 2 - 15vw);%;
+  width: 30vw;
+  top: 8vw;
+  padding: 1vw;
+  border-radius: 0.2vw;
+}
+
+form h1{
+  margin-top: 0vw;
+  font-size: 4vw;
+  color: #444444;
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  padding-bottom: 1vw;
+  border-bottom: 0.2vw solid #01ABAA;
+  margin-bottom: 0.5vw;
+}
+
+form input{
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
+form label{
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
+form .Piet label{
+  display: inline-block;
+  width: 6vw;
+  margin: 0.5vw;
+  text-align: right;
+}
+
+form .Piet input[type="email"], form .Piet input[type="password"]{
+  border: none;
+  border-bottom: 0.1vw solid #01ABAA;
+}
+
+form .g-recaptcha{
+  display: block;
+  margin-left: 4vw;
+  margin-top: 1vw;
+}
+
+form input[type="submit"]{
+  background-color: #01ABAA;
+  padding: 1vw;
+  color: #fff;
+  margin-left: 6.2vw;
+  margin-top: 0vw;
+  outline: none;
+  border: none;
+  width: 15vw;
+  cursor: pointer;
+}
+
+form a{
+  text-decoration: none;
+  color: #696969;
+  cursor: pointer;
+  margin-left: 10vw;
+}
+
+form p{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 1.5vw;
+  color: #f56642;
+  margin-top: 0.5vw;
+  text-align: center;
+  width: 100%;
+}
+
+
+
+.Remember{
+  width: 10vw;
+  margin-top: 1vw;
+  margin-left: 7.5vw;
+  margin-bottom: 0vw;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 1.5vw;
+  width: 10vw;
+  cursor: pointer;
+  font-size: 1.5vw;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  position: relative;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.5vw;
+  width: 1.5vw;
+  background-color: #eee;
+  display: block;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #01ABAA;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 0.5vw;
+  top: 0.2vw;
+  width: 0.4vw;
+  height: 0.8vw;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

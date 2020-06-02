@@ -1,0 +1,178 @@
+html{
+  scroll-behavior: smooth;
+}
+
+.NewUpdate{
+  width: calc(100% - 37vw);%;
+  position: absolute;
+  left: 18vw;
+  top: 13vw;
+  background-color: #fff;
+}
+
+.NewUpdate h2{
+  color: #fff;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.8vw;
+  margin: 0px;
+  padding: 1vw;
+  background-color: #01ABAA;
+}
+
+.NewUpdate form{
+  padding: 1vw;
+}
+
+.TextBox label{
+  text-align: left;
+  width: 3vw;
+  display: inline-block;
+}
+
+.TextBox textarea{
+  border: 0.05vw solid #01ABAA;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5vw;
+}
+
+.checkbox p{
+  display: inline-block;
+  margin-right: 1vw;
+  width: 9vw;
+}
+
+.container {
+  width: 3vw;
+  display: inline-block;
+  position: relative;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin-bottom: 1vw;
+  cursor: pointer;
+  font-size: 1.5vw;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1.5vw;
+  width: 1.5vw;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #01ABAA;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 0.375vw;
+	left: 0.375vw;
+	width: 0.75vw;
+	height: 0.75vw;
+	background: #fff;
+}
+
+input[type="submit"]{
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  padding: 1vw;
+  background-color: #01ABAA;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+input[name="Submit"]{
+  background-color: #eb4034;
+}
+
+input[name="Delete"]{
+  margin-left: 32vw;
+  background-color: #eb4034;
+}
+
+#SpecialSnowflake{
+  width: 7vw;
+}
+
+#Preview{
+  background-color: #282828;
+  color: #fff;
+  display: block;
+  position: absolute;
+  left: 18vw;
+  top: 58vw;
+  margin-bottom: 7vw;
+  height: 20vw;
+}
+
+#Preview h2{
+  margin-top: 0.5vw;
+  font-size: 3vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  text-align: center
+}
+
+#Preview #Text{
+  margin: 1vw;
+  margin-top: -1vw;
+  font-size: 1.2vw;
+}
+
+#Preview #Date{
+  float: right;
+  font-size: 1.2vw;
+  padding-right: 1vw;
+  position: absolute;
+  top: 16.5vw;
+  right: 0vw;
+}
+
+.cardHolder {
+  position: absolute;
+  top: 80vw;
+  margin-bottom: 7vw;
+}
+
+a i{
+  font-size: 2vw;
+  color: #fff;
+  float: right;
+  position: relative;
+}

@@ -1,0 +1,102 @@
+body{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.cardHolder {
+  display: flex;
+  overflow-x: auto;
+  width: calc(100% - 13vw - 7vw);%;
+  position: absolute;
+  left: 17vw;
+  top: 12vw;
+}
+
+.card{
+  overflow-x: auto;
+  width: 20vw;
+  min-width: 23vw;
+  height: 35vw;
+  background-color: #f2f2f2;
+  display: inline-block;
+  margin: 1vw;
+  position: relative;
+}
+
+.card h2{
+  position: relative;
+  background-color:#01ABAA;
+  width: calc(100% - 1vw);%;
+  margin: 0px;
+  font-size: 1.8vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  padding-left: 1vw;
+  font-weight: 200;
+  color: #f2f2f2;
+}
+
+/* width */
+.cardHolder::-webkit-scrollbar, .card::-webkit-scrollbar  {
+  height: 1vw;
+}
+
+/* Track */
+.cardHolder::-webkit-scrollbar-track, .card::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 3vw;
+}
+
+/* Handle */
+.cardHolder::-webkit-scrollbar-thumb, .card::-webkit-scrollbar-thumb {
+  border-radius: 3vw;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #E2E2E2;
+}
+
+.card::-webkit-scrollbar-thumb{
+  background-color: #696969;
+}
+
+.cardHolder::-webkit-scrollbar-thumb:hover {
+  background-color: #F2F2F2;
+}
+
+.card::-webkit-scrollbar-thumb:hover{
+  background-color: #555555;
+}
+
+.TimeActivity a{
+  color: #282828;
+}
+
+.TimeActivity i{
+  position: relative;
+  left: 0.15vw;
+  color: #01ABAA;
+}
+
+.TimeActivity{
+  margin-top: 1vw;
+  padding: 0px;
+  border-bottom: 0.05vw solid #696969;
+}
+
+#Description{
+  position: relative;
+  left: 7vw;
+  top: -1.5vw;
+  width: 14vw;
+  border: 0.1vw solid #696969;
+  padding: 0.1vw;
+  border-radius: 0.3vw;
+  font-size: 1.2vw;
+  margin-bottom: 0px;
+  padding-bottom: 0.05vw;
+  padding-left: 0.25vw;
+  padding-right: 0.25vw;
+}
+
+#Description #DLocation{
+  font-size: 0.8vw;
+}

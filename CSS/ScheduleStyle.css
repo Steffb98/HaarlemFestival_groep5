@@ -1,0 +1,168 @@
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
+.ChooseEvent{
+  display: flex;
+  justify-content: space-between;
+  width: 73%;
+  position: absolute;
+  left: 19.1vw;
+  top: 10vw;
+}
+
+.ChooseEvent button{
+  outline: none;
+  border: none;
+  background-color: #01ABAA;
+  left: 35.1vw;
+  top: 12vw;
+  margin-left: 12vw;
+  padding: 1vw;
+  font-size: 2vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  width: 14vw;
+}
+
+#Jazz{
+  margin-left: 12vw;
+}
+
+#Jazz:hover{
+  cursor: pointer;
+}
+
+#Dance{
+  margin-right: 12vw;
+}
+
+#Dance:hover{
+  cursor: pointer;
+}
+
+.ScrollTable{
+  position: absolute;
+  left: 19.1vw;
+  top: 17vw;
+  height: 40vw;
+  width: 73%;
+  overflow-y: scroll;
+  opacity: 0;
+  pointer-events: none;
+}
+
+table{
+  position: relative;
+  padding: 1vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead{
+  background: #01ABAA;
+}
+
+th{
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  font-size: 1.8vw;
+  text-align: left;
+  padding: 0.5vw;
+}
+
+tbody{
+  background-color: #fff;
+}
+
+td{
+  padding-left: 0.5vw;
+}
+
+tr:nth-child(even) {
+  background-color: #eee;
+}
+
+th:first-child{
+  width: 18vw;
+}
+
+td button{
+  background: Transparent;
+  outline: none;
+  border: none;
+  width: 2vw;
+  height: 2vw;
+  position: relative;
+  cursor: pointer;
+}
+
+td button i{
+  font-size: 2vw;
+  color: #696969;
+}
+
+#EditPopup, #NewEventPopup{
+  width: 35.3%;
+  height: 30vw;
+  background-color: #fff;
+  position: absolute;
+  left: 19.1vw;
+  top: 59vw;
+  margin-bottom: 10vw;
+}
+
+#NewEventPopup{
+  left: 56.5vw;
+}
+
+#EditPopup h1, #NewEventPopup h1{
+  background-color: #01ABAA;
+  font-size: 2vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  padding: 1vw;
+  text-align: center;
+  margin-top: 0px;
+}
+
+#EditPopup form label, #NewEventPopup form label{
+  display: inline-block;
+  padding-top: 1vw;
+  padding-left: 1vw;
+}
+
+#EditPopup form input, #EditPopup form select, #NewEventPopup form input, #NewEventPopup form select{
+  display: inline-block;
+  font-size: 1vw;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+form input[type="date"], form input[type="time"], #EditLocation, #EditLocation option, #EditBand, #EditBand option ,form input[type="text"]{
+  font-size: 1vw;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+form input[type="Submit"]{
+  font-size: 1.5vw;
+  font-family: 'Lato',sans-serif;
+  font-weight: 300;
+  background-color: #01ABAA;
+  color: #fff;
+  border: none;
+  padding: 1vw;
+  margin: 0.5vw;
+}

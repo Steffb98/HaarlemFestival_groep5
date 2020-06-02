@@ -1,0 +1,311 @@
+body{
+  font-family: 'Lato', sans-serif;
+  margin:0;
+  padding:0;
+  color:#e2e2e2;
+  background-image: linear-gradient(rgba(0,0,0, .4), rgba(0,0,0, .4)), url("../Assets/jazzbackground.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height:100%;
+}
+
+.section{
+  position: absolute;
+  width:80vw;
+  margin-left:10vw;
+  background-color: rgba(10, 10, 10, .8);
+}
+
+#jazznavbar{
+  position: relative;
+}
+
+#jazzfooter{
+  position: relative;
+  top:143vw;
+}
+
+.jazztext{
+  padding:.5vw 1.5vw;
+  font-weight:300;
+  font-size: 1.5vw;
+}
+
+#introjazztitle{
+  font-size:3vw;
+}
+
+#introjazzpage{
+  top:20vw;
+}
+
+#jazzbanner{
+  position: absolute;
+  top:6vw;
+  background-image: linear-gradient(rgba(255,204,51, .4), rgba(255,204,51, .4)), url("../Assets/jazzbanner.jpg");
+  overflow: hidden;
+  display: block;
+  background-position: center;
+  background-size: cover;
+  width:98.9vw;
+  height:12vw;
+}
+
+#jazzbandsbanner{
+  position: absolute;
+  top:46vw;
+  cursor: pointer;
+}
+
+#MTBtitle{
+  font-size: 3vw;
+  margin-bottom: -1vw;
+}
+
+#MTBpopout{
+  position: absolute;
+  top:60vw;
+  height:73vw;
+  padding-top: 3vw;
+}
+
+.MTBspecificband{
+  position: relative;
+  height:12vw;
+  width:13vw;
+  display: inline-block;
+  margin-left:0;
+}
+
+.MTBjazznamebackground{
+  height:2.5vw;
+  background: rgba(80, 80, 80, 1);
+  width:100%;
+  font-size:1.1vw;
+  margin-top:-.15vw;
+}
+
+.MTBspecificname{
+  position: absolute;
+}
+
+.fotobands{
+  width:13vw;
+  height:12vw;
+}
+
+#jazzbandsrow1{
+  margin-right:2vw;
+}
+
+.MTBjazzrows{
+  margin-left:3vw;
+}
+
+#jazzbandsrow2{
+  top:5.5vw;
+  margin-right:2vw;
+}
+
+#jazzbandsrow3{
+  top:11vw;
+  margin-right:2vw;
+}
+
+#jazzbandsrow4{
+  top:16.5vw;
+  margin-right:2vw;
+}
+
+#MTBjazzrows4{
+  margin-left:18.4vw;
+}
+
+.MTBspecificname{
+  margin-top:.4vw;
+  text-align: center;
+  width:100%;
+}
+
+#jazzticketcontainerreg, #jazzticketcontainer29, #jazzticketcontainercombi{
+  position: absolute;
+  top:83vw;
+  height:32.5vw;
+  display:inline-block;
+}
+
+#jazzticketcontainersearch{
+  top:123.5vw;
+  height:16vw;
+}
+
+#jazzsearcherror{
+  font-size:1.5vw;
+  font-weight: bold;
+}
+
+.JazzSearchBarContainer{
+  position: absolute;
+  top:116vw;
+  margin-left:20vw;
+}
+
+.JazzSearchBar{
+  width:60vw;
+  height:3vw;
+  font-size:2vw;
+  padding:.5vw;
+  border-radius: 10px;
+  background-color: #282828;
+  color:#fff;
+}
+
+#jazzticketdate, #jazzticketdate1{
+  font-size:3vw;
+}
+
+#jazzdatepickertitle{
+  font-size:2.8vw;
+}
+
+#jazzticketdatepicker{
+  height:19vw;
+  top:60vw;
+}
+
+#jazzticketdatepicker button{
+  color:#e2e2e2;
+  margin-left:5vw;
+  height:8vw;
+  width:10vw;
+  border: none;
+  margin-top:0;
+  font-size:1.5vw;
+  background:rgba(40, 40, 40, .9);
+  cursor: pointer;
+  transition: all 200ms;
+}
+
+#jazzticketdatepicker button:hover{
+  background:rgba(60, 60, 60, .9);
+}
+
+.jazztickettable{
+  margin-left:4vw;
+  margin-top:-1.5vw;
+}
+
+.jazztickettable th, td{
+  height:3vw;
+  text-align: center;
+}
+
+.jazztickettable th{
+  font-size:1.8vw;
+  font-weight: 400;
+}
+
+.jazztickettable td{
+  font-size:1.5vw;
+  font-weight: 300;
+}
+
+#jazzticketcontainerreg table{
+  width:70vw;
+}
+
+#jazzticketcontainer29 table{
+  width:30vw;
+}
+
+#jazzticketcontainercombi{
+  height:25.5vw;
+}
+
+#jazzticketcontainercombi table{
+  width:70vw;
+}
+
+#jazzticketcontainersearch table{
+  width:45vw;
+}
+
+#jazzticketshoppingcart{
+  width:3vw;
+  padding:0;
+  margin-top:.5vw;
+}
+
+.jazzbuttonticket, .jazzbuttonticketcombi{
+  border:none;
+  background: transparent;
+  padding:0;
+}
+
+.jazzticketamount{
+  width:2.5vw;
+}
+
+.jazzticketcontainerinfo29{
+  width:25vw;
+  height:15vw;
+  background-color: rgba(80, 80, 80, .6);
+  margin-left:47vw;
+  margin-top:-21.5vw;
+  border:1px solid  rgba(254, 254, 254, .5);
+  padding:1vw 2vw;
+  font-size:1.5vw;
+  font-weight:300;
+}
+
+#addToCart{
+  color:#111;
+}
+
+.confirmbtn
+{
+  margin-top: 2vw;
+  background-color: green;
+  padding: 1vw 0.5vw;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+}
+
+.cancelbtn
+{
+  margin-left: 3vw;
+  margin-top: 2vw;
+  padding: 1vw 0.5vw;
+  background-color: red;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+}
+
+#jazzmodalheader{
+  font-size:1.3vw;
+  text-align: center;ss
+}
+
+#addToCart{
+  font-weight: 300;
+
+}
+
+.searchinfo{
+  position: relative;
+  top:-12vw;
+  padding:1vw;
+  margin-right:2vw;
+  height:10vw;
+  width:20vw;
+  font-size:1.5vw;
+  float:right;
+  background-color:#282828;
+}

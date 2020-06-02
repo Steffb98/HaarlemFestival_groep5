@@ -1,0 +1,87 @@
+body{
+  font-family: 'Lato', sans-serif;
+  margin:0;
+  padding:0;
+}
+
+.cardholder{
+  position: absolute;
+  width:72vw;
+  height:30vw;
+  border:3px solid;
+  margin-left:15vw;
+  margin-top:10vw;
+  overflow-y:scroll;
+}
+
+.UserOrder{
+  margin:1vw 1vw;
+  border:#111 solid 1px;
+  border-radius: 20px;
+  height:18vw;
+  padding:2vw;
+}
+
+.UserOrderText{
+  font-size:1.3vw;
+  margin-top:1vw;
+  position: absolute;
+}
+
+#NameArtist{
+  margin-left:20vw;
+  font-size:1.8vw;
+  padding-bottom: 1vw;
+}
+
+#OrderNumberandNameText{
+  margin-top:3vw;
+  margin-left:20vw;
+}
+
+#DateandTimeText{
+  margin-left:20vw;
+  margin-top:3vw;
+}
+
+#PriceandAmountText{
+  margin-left:50vw;
+  margin-top:-7vw;
+}
+
+#LocationText{
+  margin-left:50vw;
+  margin-top:3vw;
+}
+
+.OrderTicketPicture{
+  position: absolute;
+  overflow: hidden;
+  background-size: cover;
+  display: block;
+  height:18vw;
+  width: 18vw;
+}
+
+#footer{
+  position: relative;
+  top:43vw;
+}
+
+#navbar{
+  position: relative;
+}
+
+#Yourtickets{
+  position: absolute;
+  margin-top:15vh;
+  margin-left:15vw;
+  font-size:2vw;
+}
+
+#NoTicketText{
+  position: absolute;
+  left:20vw;
+  right:18vw;
+  top:25vh;
+}

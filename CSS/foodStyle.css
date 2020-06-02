@@ -1,0 +1,244 @@
+body
+{
+  background: url(../Assets/hout.jpg);
+  height: 100%;
+  background-position: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  background-size: cover;
+  margin:0;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+}
+.error
+{
+  color:red;
+  text-align: center;
+}
+.header
+{
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../Assets/banner.jpg);
+    background-position:50% 50%;
+    background-size: cover;
+    height: 15vw;
+    text-align: center;
+    padding-top:10vw;
+}
+
+#bannertitle{
+  position: absolute;
+  top:5vw;
+  left:30vw;
+}
+
+h1
+{
+  color: white;
+  font-size: 6vw;
+  font-weight: 300;
+  padding: 3vw;
+}
+h4
+{
+  font-size: 1.4vw;
+  text-align: center;
+}
+h2
+{
+  font-size: 2vw;
+  text-align: center;
+  margin-bottom: -1.2vw;
+}
+h3
+{
+  font-size: 2vw;
+  text-align: center;
+}
+.block
+{
+  width: 23vw;
+  height: 35vw;
+  border: 0.1vw solid black;
+  background-color: white;
+  margin-left: 7.5%;
+  margin-top: 3%;
+  position: relative;
+  float:left;
+  display: none;
+}
+.block1
+{
+  display: inline-block;
+  width: 23vw;
+  height: 14vw;
+  border-bottom: 0.1vw solid black;
+  background-color: white;
+}
+.row:after
+{
+  content: "";
+  display: table;
+  clear: both;
+}
+.text
+{
+  min-height: 14vw;
+  font-size:1.2vw;
+}
+.star
+{
+  display: inline-block;
+  bottom:0;
+  left:0;
+  color: yellow;
+}
+.icons
+{
+  position: absolute;
+  bottom: 0;
+  right:0;
+}
+.fas
+{
+  font-size: 1.5vw;
+}
+.date
+{
+  display: inline-block;
+  width: 70%;
+  height: 15vw;
+  border: 0.1vw solid black;
+  background-color: white;
+  margin: auto;
+  margin-top: 5vw;
+  margin-left: 15%;
+}
+.ticket
+{
+  display: inline-block;
+  width: 70%;
+  height: auto;
+  border: 0.1vw solid black;
+  background-color: white;
+  margin: auto;
+  margin-top: 2vw;
+  margin-left: 15%;
+}
+.note
+{
+  display: inline-block;
+  width: 70%;
+  border: 0.1vw solid black;
+  background-color: white;
+  margin: auto;
+  margin-top: 2vw;
+  margin-left: 15%;
+  text-align: center;
+}
+.btn
+{
+  background-color: #E2E2E2;
+  border: 0.1vw solid black;
+  color: black;
+  margin-left: 7.5vw;
+  margin-right: auto;
+  text-align: center;
+  font-size: 1.2vw;
+  width: 8vw;
+  height: 8vw;
+}
+.btn:hover,
+.btn:focus
+{
+  border-color: currentColor;
+  background-color: white;
+}
+
+th
+{
+  text-align: left;
+}
+
+table{
+  margin-left:3vw;
+  margin-top:3vw;
+  font-size:1.2vw;
+}
+
+.foodpopuptextarea
+{
+  margin-bottom: 2vw;
+  margin-left: 5%;
+  width: 90%;
+  height: 5vw;
+
+}
+.form-container .cancel
+{
+  background-color: red;
+}
+.form-container .btn:hover, .open-button:hover
+{
+  opacity: 1;
+}
+
+.show
+{
+  display: inline-block;
+}
+.btnFilter
+{
+  border: none;
+  outline: none;
+  padding: 1vw 2vw;
+  background-color: white;
+  cursor: pointer;
+  margin-top: 2vw;
+  margin-left: 0.1vw;
+  font-size:1vw;
+}
+.btnContainer
+{
+  display: flex;
+  justify-content: center;
+
+}
+.btnFilter:hover
+{
+  background-color: #ddd;
+}
+.btnFilter.active
+{
+  background-color: #666;
+  color: white;
+}
+.cancelbtn
+{
+  margin-left: 3vw;
+  margin-top: 2vw;
+  padding: 1vw 0.5vw;
+  background-color: red;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+}
+
+.confirmbtn
+{
+  margin-top: 2vw;
+  background-color: green;
+  padding: 1vw 0.5vw;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+}
+
+.footer{
+  margin-top:2vw;
+  bottom:0;
+  margin-bottom:0;
+}

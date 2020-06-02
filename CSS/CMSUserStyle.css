@@ -1,0 +1,289 @@
+body{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.Search{
+  position: absolute;
+  left: 17vw;
+  top: 12vw;
+  background-color: #f2f2f2;
+  width: calc(100% - 13vw - 13vw);%;
+  font-size: 1.5vw;
+}
+
+.Search input{
+  font-size: 1.5vw;
+  padding: 0.5vw;
+  padding-right: 0vw;
+  margin-left: 0vw;
+  background: none;
+  border: none;
+  width: calc(100% - 5vw);%;
+}
+
+.Search input:hover{
+  color: #696969;
+  -webkit-box-shadow:inset 0px 0px 0px 0.05vw #696969;
+  -moz-box-shadow:inset 0px 0px 0px 0.05vw #696969;
+  box-shadow:inset 0px 0px 0px 0.05vw #696969;
+}
+
+.Search input:focus{
+  transition: 0.3s;
+  background-color: #F2F2F2;
+}
+
+.Search button{
+  font-size: 1.5vw;
+  padding: 0.5vw;
+  padding-left: 0vw;
+  margin-left: 0vw;
+  background: none;
+  border: none;
+  width: 4vw;
+  color: #282828;
+}
+
+.Search button:hover{
+  transition: 0.3s;
+  color: #01ABAA;
+}
+
+.Search button:not(:hover){
+  transition: 0.3s;
+  color: #282828;
+}
+
+.Table{
+  position: absolute;
+  width: calc(100% - 26vw);%;
+  left: 17vw;
+  top: 17vw;
+}
+
+.Table .Head{
+  background-color: #01abaa;
+}
+
+.Table .Head p{
+  margin:0vw;
+  padding:0vw;
+  display: inline-block;
+  font-size: 2vw;
+  color: #FFF;
+  width: 18.7vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  color: #f2f2f2;
+  padding-left: 1vw;
+}
+
+
+.Table .Body{
+  padding-left: 0;
+  height: 15vw;
+  overflow-y: scroll;
+  background-color: #f2f2f2;
+}
+
+.Table .Body div{
+  border-bottom: 0.05vw solid #282828;
+}
+
+.Table .Body p, .Table .Body form{
+  margin:0vw;
+  padding:0vw;
+  display: inline-block;
+  font-size: 1.5vw;
+  color: #282828;
+  width: 18.7vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  padding-left: 1vw;
+}
+
+.Table .Body form input{
+  color: #282828;
+  padding: 0px;
+  margin: 0px;
+  background-color: #F2F2F2;
+  border: none;
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
+}
+
+.Table .Body form #Hidden{
+  width: 0px;
+}
+
+#Ticket{
+  width: 12vw;
+}
+
+#Email{
+  width: 26vw;
+}
+
+#UserId{
+  width: 10vw;
+}
+
+
+.TicketTable{
+  position: absolute;
+  left: 17vw;
+  top: 40vw;
+  background-color: #F2F2F2;
+  width: calc(100% - 13vw - 13vw);%;
+  font-size: 1.5vw;
+  margin-bottom: 7vw;
+}
+
+.TicketTable thead tr th{
+  width: 100%;
+  background-color: #01ABAA;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  font-size: 2vw;
+  color: #fff;
+  font-weight: 300;
+}
+
+.TicketTable tbody tr td{
+  border-bottom: 0.05vw solid #01ABAA;
+}
+
+.Card .Name{
+  padding-top: 1vw;
+
+}
+
+.Card #Bought{
+  padding-top: 1vw;
+}
+
+.Card #Ticket{
+  position: relative;
+  width: 20vw;
+  top:-0.5vw;
+}
+
+.Card #Edit{
+  position: relative;
+  top: -1vw;
+  width: 10vw;
+  padding: 0.5vw;
+  border: 0.05vw solid #01ABAA;
+  background-color: #F2F2F2;
+  color: #282828;
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  text-decoration: none;
+}
+
+.Card #Edit:hover{
+  cursor: pointer;
+}
+
+.Card #Title{
+  width: 38vw;
+  padding-left: 1vw;
+  border-left: 0.05vw solid #01ABAA;
+}
+
+.Card div span {
+  color: #01ABAA;
+}
+
+
+#Popup{
+  display: none;
+  width: 30vw;
+  height: 30vw;
+  z-index: 100;
+  position: absolute;
+  top: 15vw;
+  margin-left: 40vw;
+  background-color: #F2F2F2;
+  border: 0.05vw solid #01ABAA;
+  box-shadow: 0.08vw 0.08vw 5px grey;
+}
+
+#Popup button{
+  position: relative;
+  float: right;
+  right: 1vw;
+  top: -4.2vw;
+  font-size: 1.5vw;
+  background: none;
+  border: none;
+  color: #fff;
+}
+
+#Popup button:hover{
+  position: relative;
+  transition: 0.3s;
+  cursor: pointer;
+  color: #F2F2F2;
+  font-size: calc(1.5vw * 1.2);vw;
+  top: -4.8;
+  right: 0.9vw;
+}
+
+#Popup button:not(:hover){
+  position: relative;
+  transition: 0.3s;
+}
+
+#Popup h1{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 2vw;
+  color: #F2F2F2;
+  background-color: #01ABAA;
+  padding: 1vw;
+  margin: 0px;
+  margin-bottom: 1vw;
+}
+
+#Popup form p{
+  display: inline-block;
+  margin-right: 1vw;
+  margin-left: 1vw;
+  margin-top: 0.5vw;
+}
+
+#Popup form input[type="Submit"]{
+  background: none;
+  border: 0.1vw solid #01ABAA;
+  margin-left: 1vw;
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  padding: 0.5vw;
+  margin-top: 1vw;
+  cursor: pointer;
+}
+
+#Popup form input[type="Submit"]:hover{
+}
+
+#Popup form select{
+  background: none;
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  width: 10vw;
+  margin-right: 10vw;
+}
+
+#Popup form select option{
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  background-color: #E2E2E2;
+}

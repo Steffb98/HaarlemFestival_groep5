@@ -1,0 +1,226 @@
+html{
+  scroll-behavior: smooth;
+}
+
+.Search{
+  position: absolute;
+  left: 19vw;
+  top: 17vw;
+  background-color: #fff;
+  width: 73%;
+  font-size: 1.5vw;
+}
+
+.Search input{
+  font-size: 1.5vw;
+  padding: 0.5vw;
+  padding-right: 0vw;
+  margin-left: 0vw;
+  background: none;
+  border: none;
+  width: calc(100% - 5vw);%;
+  color: #696969;
+}
+
+.Search input:hover{
+  transition: 0.3s;
+  color: #444444;
+  -webkit-box-shadow:inset 0px 0px 0px 0.05vw #696969;
+  -moz-box-shadow:inset 0px 0px 0px 0.05vw #696969;
+  box-shadow:inset 0px 0px 0px 0.05vw #696969;
+}
+
+.Search input:focus{
+  transition: 0.3s;
+  background-color: #F2F2F2;
+}
+
+.Search button{
+  font-size: 1.5vw;
+  padding: 0.5vw;
+  padding-left: 0vw;
+  margin-left: 0vw;
+  background: none;
+  border: none;
+  width: 4vw;
+  color: #282828;
+}
+
+.Search button:hover{
+  transition: 0.3s;
+  color: #01ABAA;
+}
+
+.Search button:not(:hover){
+  transition: 0.3s;
+  color: #282828;
+}
+
+.ScrollTable{
+  position: absolute;
+  left: 19.1vw;
+  top: 21vw;
+  height: 34vw;
+  width: 73%;
+  overflow-y: scroll;
+}
+
+table{
+  position: relative;
+  padding: 1vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead{
+  background: #01ABAA;
+}
+
+th{
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  font-size: 1.8vw;
+  text-align: left;
+  padding: 0.5vw;
+}
+
+tbody{
+  background-color: #fff;
+}
+
+td{
+  padding-left: 0.5vw;
+}
+
+tr:nth-child(even) {
+  background-color: #eee;
+}
+
+th:first-child{
+  width: 18vw;
+}
+
+td button{
+  background: Transparent;
+  outline: none;
+  border: none;
+  width: 2vw;
+  height: 2vw;
+  position: relative;
+  cursor: pointer;
+}
+
+td i{
+  font-size: 2vw;
+  color: #555;
+}
+
+#EditPopup{
+  width: 72%;
+  height: 41vw;
+  background-color: #fff;
+  position: absolute;
+  left: 19.1vw;
+  top: 59vw;
+  margin-bottom: 10vw;
+}
+
+#EditPopup h1{
+  background-color: #01ABAA;
+  font-size: 2vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  padding: 1vw;
+  text-align: center;
+  margin-top: 0px;
+}
+
+form input[type="date"], form input[type="time"],form textarea ,form input[type="text"], form input[type="Submit"]{
+  font-size: 1vw;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+form input[type="Submit"]{
+  background-color: #01ABAA;
+  border: none;
+  padding: 1vw;
+  float: left;
+  color: #fff;
+  font-size: 1.5vw;
+  margin: 1vw;
+}
+
+form p i{
+  color: #f56642;
+}
+
+.Sessions{
+  position: relative;
+  float: left;
+  top: -25vw;
+  left: 17vw;
+  height: 25vw;
+  overflow-y: scroll;
+  border-left: 0.1vw solid #01ABAA;
+  padding-left: 2vw;
+}
+
+#SessionNumber{
+  border-top: 0.05vw solid #000;
+  padding-top: 0.5vw;
+  font-weight: 400;
+  color: #444444;
+}
+
+#NewEventPopup{
+  width: 35.3%;
+  height: 34vw;
+  background-color: #fff;
+  position: absolute;
+  left: 56.5vw;
+  top: 59vw;
+  margin-bottom: 10vw;
+}
+
+#NewEventPopup h1{
+  background-color: #01ABAA;
+  font-size: 2vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  color: #fff;
+  padding: 1vw;
+  text-align: center;
+  margin-top: 0px;
+}
+
+#NewEventPopup form label{
+  display: inline-block;
+  padding-top: 1vw;
+  padding-left: 1vw;
+}
+
+#NewEventPopup form input, #NewEventPopup form select{
+  display: inline-block;
+}
+
+form input[type="date"], form input[type="time"], #EditLocation, #EditLocation option, #EditBand, #EditBand option ,form input[type="text"]{
+  font-size: 1vw;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+form input[type="Submit"]{
+  font-size: 1.5vw;
+  font-family: 'Lato',sans-serif;
+  font-weight: 300;
+  background-color: #01ABAA;
+  color: #fff;
+  border: none;
+  padding: 1vw;
+  margin: 0.5vw;
+}

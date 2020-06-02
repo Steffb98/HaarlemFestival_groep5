@@ -1,0 +1,100 @@
+table.scrolldown {
+    width: 100%;
+
+    /* border-collapse: collapse; */
+    border-spacing: 0;
+    border: 2px solid black;
+}
+
+/* To display the block as level element */
+table.scrolldown tbody, table.scrolldown thead {
+    display: block;
+}
+
+thead tr th {
+    height: 40px;
+    line-height: 40px;
+}
+
+table.scrolldown tbody {
+
+    /* Set the height of table body */
+    height: 50px;
+
+    /* Set vertical scroll */
+    overflow-y: auto;
+
+    /* Hide the horizontal scroll */
+    overflow-x: hidden;
+}
+
+tbody {
+    border-top: 2px solid black;
+}
+
+tbody td, thead th {
+    width : 200px;
+    border-right: 2px solid black;
+}
+td {
+    text-align:center;
+}
+
+
+
+
+<table class="fixed_header">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Emailadress</th>
+      <th>UserId</th>
+      <th>Tickets</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>jaap van Dalen</td>
+      <td>jaap.van.dalen.2001.jvd@gmail.com</td>
+      <td>203</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>row 2-0</td>
+      <td>row 2-1</td>
+      <td>row 2-2</td>
+      <td>row 2-4</td>
+    </tr>
+    <tr>
+      <td>row 2-0</td>
+      <td>row 2-1</td>
+      <td>row 2-2</td>
+      <td>row 2-4</td>
+    </tr>
+    <tr>
+      <td>row 2-0</td>
+      <td>row 2-1</td>
+      <td>row 2-2</td>
+      <td>row 2-4</td>
+    </tr>
+    <tr>
+      <td>row 2-0</td>
+      <td>row 2-1</td>
+      <td>row 2-2</td>
+      <td>row 2-4</td>
+    </tr>
+    <tr>
+      <td>row 2-0</td>
+      <td>row 2-1</td>
+      <td>row 2-2</td>
+      <td>row 2-4</td>
+    </tr>
+    <tr>
+      <td>row 2-0</td>
+      <td>row 2-1</td>
+      <td>row 2-2</td>
+      <td>row 2-4</td>
+    </tr>
+  </tbody>
+</table>

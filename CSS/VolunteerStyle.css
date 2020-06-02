@@ -1,0 +1,236 @@
+html{
+  scroll-behavior: smooth;
+  cursor: auto;
+}
+
+body{
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.Search{
+  position: absolute;
+  left: 17vw;
+  top: 12vw;
+  background-color: #F2F2F2;
+  width: calc(100% - 13vw - 13vw);%;
+  font-size: 1.5vw;
+}
+
+.Search input{
+  font-size: 1.5vw;
+  padding: 0.5vw;
+  padding-right: 0vw;
+  margin-left: 0vw;
+  background: none;
+  border: none;
+  width: calc(100% - 5vw);%;
+}
+
+.Search input:hover{
+  color: #696969;
+  -webkit-box-shadow:inset 0px 0px 0px 0.05vw #696969;
+  -moz-box-shadow:inset 0px 0px 0px 0.05vw #696969;
+  box-shadow:inset 0px 0px 0px 0.05vw #696969;
+}
+
+.Search input:focus{
+  transition: 0.3s;
+  background-color: #F2F2F2;
+}
+
+.Search button{
+  font-size: 1.5vw;
+  padding: 0.5vw;
+  padding-left: 0vw;
+  margin-left: 0vw;
+  background: none;
+  border: none;
+  width: 4vw;
+  color: #282828;
+}
+
+.Search button:hover{
+  transition: 0.3s;
+  color: #01ABAA;
+}
+
+.Search button:not(:hover){
+  transition: 0.3s;
+  color: #282828;
+}
+
+.Table{
+  position: absolute;
+  width: calc(100% - 26vw);%;
+  left: 17vw;
+  top: 17vw;
+}
+
+.Table .Head{
+  background-color: #01abaa;
+}
+
+.Table .Head p{
+  margin:0vw;
+  padding:0vw;
+  display: inline-block;
+  font-size: 2vw;
+  color: #FFF;
+  width: 18.7vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  padding-left: 1vw;
+}
+
+
+.Table .Body{
+  padding-left: 0;
+  height: 15vw;
+  overflow-y: scroll;
+  background-color: #F2F2F2;
+}
+
+.Table .Body div{
+  border-bottom: 0.05vw solid #282828;
+}
+
+.Table .Body p, .Table .Body form{
+  margin:0vw;
+  padding:0vw;
+  display: inline-block;
+  font-size: 1.5vw;
+  color: #282828;
+  width: 18.7vw;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  padding-left: 1vw;
+}
+
+.Table .Body form input{
+  color: #282828;
+  padding: 0px;
+  margin: 0px;
+  background-color: #F2F2F2;
+  border: none;
+  font-size: 1.5vw;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+}
+
+.Table .Body form input:hover{
+  cursor: pointer;
+}
+
+
+.Table .Body form #Hidden{
+  width: 0px;
+}
+
+#Rank{
+  width: 12vw;
+}
+
+#Email{
+  width: 26vw;
+}
+
+#UserId{
+  width: 10vw;
+}
+
+
+#ChangeVolunteer, #Activities, #NewVolunteer{
+  width: calc((100% - 13vw - 11vw) / 2 );%;
+  position: absolute;
+  left: 17vw;
+  top: 40vw;
+  background-color: #fff;
+  margin-bottom: 10vw;
+  padding-bottom: 1vw;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+#Activities{
+  left: 54.5vw;
+  width: 35.5vw;
+  border-left: 0.1vw solid #01ABAA;
+  height: 25.5vw;
+}
+
+#NewVolunteer{
+  top: 70vw;
+  pointer-events:  auto;
+  opacity: 1;
+}
+
+#ChangeVolunteer h2, #Activities h2, #NewVolunteer h2{
+  color: #fff;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.8vw;
+  margin: 0px;
+  padding: 1vw;
+  background-color: #01ABAA;
+}
+
+#ChangeVolunteer form p, #Activities form p,#NewVolunteer form p{
+  color: #01ABAA;
+  padding-left: 1vw;
+}
+
+#ChangeVolunteer form input, #Activities form input, #NewVolunteer form input{
+  font-size: 1.5vw;
+  font-family: 'Lato',sans-serif;
+  font-weight: 300;
+  color: #282828;
+  border: none;
+  border-bottom: 0.05vw solid #696969;
+  margin-left: 1vw;
+  width: 15vw;
+  background: transparent;
+}
+
+#ChangeVolunteer form input[type=Text]:focus, #Activities form input[type=Text]:focus, #NewVolunteer form input[type=Text]:focus{
+  border-bottom: 0.05vw solid #494949;
+  width: 16vw;
+  transition: 0.3s;
+  outline:0;
+}
+
+#ChangeVolunteer form input[type=Submit], #Activities form input[type=Submit], #NewVolunteer form input[type=Submit]{
+  background-color: #01ABAA;
+  color: #fff;
+  border: none;
+  padding: 0.5vw;
+  width: 10vw;
+}
+
+#ChangeVolunteer form input[type=Submit]:hover, #Activities form input[type=Submit]:hover, #NewVolunteer form input[type=Submit]:hover{
+  cursor: pointer;
+}
+
+#Error{
+  color: #eb4034;
+}
+
+.CardHolder{
+  display: block;
+  height: 22.4vw;
+  overflow-y: scroll;
+}
+
+.Activity{
+  padding-top: 1vw;
+  padding-left: 1vw;
+}
+
+.Activity p{
+  margin: 0px;
+  padding: 0px;
+}
+
+.Activity p span{
+  color: #01ABAA;
+}

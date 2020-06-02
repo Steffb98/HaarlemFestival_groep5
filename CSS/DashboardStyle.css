@@ -1,0 +1,72 @@
+#ActivityCard{
+  position: absolute;
+  top: 12vw;
+  left: 17vw;
+}
+
+#UpdateCard{
+  position: absolute;
+  top: 12vw;
+  left: 43vw;
+}
+
+#MessageCard{
+  position: absolute;
+  top: 12vw;
+  left: 69vw;
+}
+
+.card #Image img{
+  margin: 1vw;
+  height: 20vw;
+  width: 20vw;
+  object-fit: cover;
+}
+
+h1{
+  position: absolute;
+  background-color: none;
+  font-size: 2vw;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #282828;
+  padding-left: 1vw;
+  top: 9vw;
+}
+
+#ActivityDiv{
+  left: 17vw;
+}
+
+#UpdateDiv{
+  left: 43vw;
+}
+
+#MessageDiv{
+  left: 69vw;
+}
+
+.card #Date{
+  color: #696969;
+  font-size: 1vw;
+}
+
+.card #Topic{
+  position: relative;
+  font-size: 2vw;
+  top: -1vw;
+}
+
+#MessageCard #Date{
+  position: relative;
+  top: -2vw;
+}
+
+#MessageCard #Message{
+  position: relative;
+  top: -3vw;
+}
+
+.card p{
+  padding-left: 1vw;
+}

@@ -1,0 +1,61 @@
+body{
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5vw;
+  font-weight: 300;
+  background-image: linear-gradient(90deg, #01ABAA, #55F3FF);
+}
+
+.EditAccount{
+  overflow-x: auto;
+  width: calc(100% - 13vw - 7vw);%;
+  position: absolute;
+  left: 17vw;
+  top: 12vw;
+  background-color: #fff;
+}
+
+h2{
+  color: #fff;
+  font-weight: 300;
+  font-family: 'Lato', sans-serif;
+  font-size: 1.8vw;
+  margin: 0px;
+  padding: 1vw;
+  background-color: #01ABAA;
+}
+
+.EditAccount form{
+  padding-top: 1vw;
+}
+
+.EditAccount form p{
+  padding-left: 0.5vw;
+}
+
+.EditAccount form div{
+  padding: 0.5vw;
+}
+
+.EditAccount form div span{
+  color: #01ABAA;
+  text-align: right;
+  width: 10vw;
+}
+
+.EditAccount form input[type="text"], input[type="password"], input[type="email"]{
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5vw;
+  font-weight: 300;
+  margin-left: 1vw;
+}
+
+.EditAccount form input[type="submit"]{
+  font-family: 'Lato', sans-serif;
+  font-size: 1.5vw;
+  font-weight: 300;
+  margin: 1vw;
+  padding: 1vw;
+  color: #fff;
+  background-color: #01ABAA;
+  border: none;
+}

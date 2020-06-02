@@ -1,0 +1,151 @@
+function GetActivity()
+{
+  $dayArray = array();
+
+  for ($i=0; $i < mt_rand(2, 8) ; $i++) {
+    $day = new stdClass();
+    $timestamp = mt_rand(1, time());
+    $day->date = date("D, d", $timestamp)."th ".date("M", $timestamp);
+    $day->activities = $this->MakeActivities();
+    array_push($dayArray, $day);
+  }
+  $_SESSION['days'] = $dayArray;
+}
+function MakeActivities(){
+
+  $activityArray = array();
+
+  for ($i=0; $i < mt_rand(2, 6) ; $i++) {
+    $hours = mt_rand(0, 23);
+    if (strlen($hours) == 1){
+      $hours = "0".$hours;
+    }
+
+    $minutes = mt_rand(0,60);
+    if (strlen($minutes) == 1){
+      $minutes = "0".$minutes;
+    }
+
+    $time = $hours.":".$minutes;
+
+    $arrayPeople = array("Martin Garrix", "Gare du Nord","Susan", "Frank", "Restaurant Mr. & Mrs.", "Specktakel", "Gumbo Kings", "Hardwell", "Haarlem Festival", "Jaap", "Marco", "Armin van Buuren", "Tour Guide Kim", "Sound Enigeer Jim");
+    $arraySentence = " needs help with ";
+    $arrayAction = array("setting up lights", "eating food", "testing the sound", "crying out loud", "making cupcakes", "thinking of a better name", "Choosing a song", "testing equipment", "tapping beer", "selling special powder", "preparing lunch");
+
+    $sentence = strval($arrayPeople[array_rand($arrayPeople)]);
+    $sentence = $sentence.strval($arraySentence);
+    $sentence = $sentence.strval($arrayAction[array_rand($arrayAction)]);
+
+    $activity = new stdClass();
+    $activity->time = $time;
+    $activity->sentence = $sentence;
+    array_push($activityArray, $activity);
+  }
+  return $activityArray;
+}
+
+
+
+function GetActivity(){
+  $activityArray = CMS_GetActivity("1");
+
+  $activityList = array();
+  $daylist = array();
+
+
+  foreach ($activityArray as $tempActivity) {
+    echo 'hoi ';
+    foreach ($daylist as $day) {
+      if(date("d-m-Y",strtotime($day->$activityList[0]->Time)) == date("d-m-Y",strtotime($tempActivity->Time))){
+        array_push($day->$activityList[0], $tempActivity);
+      }
+    }
+    if(empty($daylist)){
+      $activityList = array();
+      array_push($activityList, $tempActivity);
+      array_push($daylist, $activityList);
+      print_r($activityList);
+      echo '\br\br\br';
+      print_r($tempActivity);
+    }
+  }
+  $_SESSION['days'] = $daylist;
+}
+}
+
+
+
+
+// foreach ($dayList as $key) {
+//  if($key != NULL){
+//    if (date("m-d-Y",strtotime($key[0]->Time)) == date("m-d-Y",strtotime($tempActivity->Time))){
+//      array_push($key, $tempActivity);
+//      array_push($dayList, $key);
+//      echo "Start";
+//      $succes = "Succes";
+//      break;
+//    }
+//  }
+
+
+
+
+--display activities-- important!
+
+for ($i=0; $i <5 ; $i++) {
+  $activityList = array();
+  array_push($dayList, $activityList);
+}
+
+foreach ($activityArray as $tempActivity){
+  if (date("d-m-Y", strtotime($tempActivity->Time)) == "06-06-2020"){
+    array_push($dayList[0], $tempActivity);
+  }
+  else if (date("d-m-Y", strtotime($tempActivity->Time)) == "07-06-2020"){
+    array_push($dayList[1], $tempActivity);
+  }
+  else if (date("d-m-Y", strtotime($tempActivity->Time)) == "08-06-2020"){
+    array_push($dayList[2], $tempActivity);
+  }
+  else if (date("d-m-Y", strtotime($tempActivity->Time)) == "09-06-2020"){
+    array_push($dayList[3], $tempActivity);
+  }
+  else{
+    $succes = "Fail";
+
+    for ($i=0; $i < count($dayList); $i++) {
+      if($dayList[$i] != NULL){
+        foreach ($dayList[$i] as $key) {
+          if (date("m-d-Y",strtotime($key->Time)) == date("m-d-Y",strtotime($tempActivity->Time))){
+            array_push($dayList[$i], $tempActivity);
+            $succes = "Succes";
+            break;
+          }
+          break;
+        }
+      }
+    }
+
+    if($succes == "Fail"){
+      $activityList = array();
+      array_push($activityList, $tempActivity);
+      array_push($dayList, $activityList);
+    }
+  }
+}
+$_SESSION['days'] = $dayList;
+}
+}
+
+
+
+// //update the restaurant session,
+// $stmt2 = $mysqli->stmt_init();
+// $stmt2->prepare('UPDATE RestaurantSessions SET AmountOfSeats = AmountOfSeats + 1 WHERE RSessionID = ?');
+// $stmt2->bind_param("i", $oldTime);
+// $stmt2->execute();
+//
+// $stmt2 = $mysqli->stmt_init();
+// $stmt2->prepare('UPDATE RestaurantSessions SET AmountOfSeats = AmountOfSeats - 1 WHERE RSessionID = ?');
+// $stmt2->bind_param("i",$newTime);
+// $stmt2->execute();

@@ -1,0 +1,88 @@
+body{
+  font-family: 'Lato', sans-serif;
+  margin:0;
+  padding:0;
+  background-image: url("../Assets/UserLoginPic.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height:100%;
+  color:#fff;
+}
+
+.section{
+  position: absolute;
+  background-color:#282828;
+  width:45vw;
+  height:43vw;
+  top:6vw;
+}
+
+#userfooter{
+  position: relative;
+  top:43vw;
+}
+
+.formcontainer, .regformcontainer{
+  margin-left:7vw;
+  color:rgba(150, 150, 150, 1);
+  margin-top:-3vw;
+}
+
+.userformlogintitle, .userformregistertitle{
+  font-weight:400;
+  font-size:2.5vw;
+}
+
+.formcontainer i, .regformcontainer i{
+  font-size:2.5vw;
+  margin-top:.5vw;
+}
+
+.regformcontainer i{
+margin-top:1vw;
+}
+
+.userformtextbox{
+  position: relative;
+  margin-left:1vw;
+  height:2vw;
+  top:-.7vw;
+  width:15vw;
+  background-color: transparent;
+  font-size:1vw;
+  color:#fff;
+}
+
+.formbutton{
+  margin-top:1.5vw;
+  margin-right:.5vw;
+  width:9.15vw;
+  height:3vw;
+  background-color: transparent;
+  font-size:1.5vw;
+  color:rgba(150, 150, 150, 1);
+}
+
+#registerformbutton{
+  margin-left:6vw;
+}
+
+.forgotpw, .backtologin{
+  margin-top:.5vw;
+  position: relative;
+  text-decoration: none;
+  font-size:1.3vw;
+  color:rgba(150, 150, 150, 1);
+  margin-left:4.5vw;
+}
+
+.backtologin{
+  cursor:pointer;
+}
+
+#ErrorMessage{
+  font-size:1vw;
+  margin-left:2vw;
+  color:red;
+}

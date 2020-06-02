@@ -1,0 +1,85 @@
+.header
+{
+  background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .5)), url(../Assets/haarlem.jpeg);
+  background-position:100% 50%;
+  background-size: cover;
+  width: 68vw;
+  height: 10vw;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  padding-top: 6vw;
+}
+#redirectTitle
+{
+  position: absolute;
+  top:3vw;
+  left:34vw;
+}
+body
+{
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255,0.5 )), url(../Assets/haarlem.jpeg);;
+  height: 100%;
+  background-position: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  background-size: cover;
+  margin:0px;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+}
+h1
+{
+    color: white;
+    font-size: 5vw;
+    font-weight: 300;
+    padding: 1vw;
+    margin-left: -4vw;
+}
+#notice
+{
+  color: white;
+  text-align: center;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  margin-top: 2vw;
+}
+#notice p
+{
+  text-align: left;
+  margin-left: 12vw;
+}
+.link
+{
+  color:	#00BFFF;
+  margin-right: 1vw;
+}
+.Notice
+{
+  background-color: black;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  width: 68vw;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+}
+.cartfooter
+{
+  margin-top: 6vw;
+  margin-bottom: -4vw;
+}
+.pdfButton
+{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 1vw 3vw;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.5vw;
+  margin-left: 50vw;
+  margin-bottom: 1vw;
+  cursor: pointer;
+}

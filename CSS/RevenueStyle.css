@@ -1,0 +1,79 @@
+h1{
+  font-family: 'Lato', sans-serif;
+  font-size: 3vw;
+  font-weight: 300;
+  color: #fff;
+  position: relative;
+}
+
+.ScrollableTable{
+  width: calc(100% - 20vw - 10vw);%;
+  height: 20vw;
+  overflow-y: scroll;
+}
+
+#Jazzh1{
+  position: absolute;
+  left: 20vw;
+  top: 12vw;
+}
+
+#JazzTable{
+  position: absolute;
+  left: 20vw;
+  top: 18vw;
+}
+
+#Danceh1{
+  position: absolute;
+  left: 20vw;
+  top: 37vw;
+}
+
+#DanceTable{
+  position: absolute;
+  left: 20vw;
+  top: 43vw;
+}
+
+#Foodh1{
+  position: absolute;
+  left: 20vw;
+  top: 62vw;
+}
+
+#FoodTable{
+  position: absolute;
+  left: 20vw;
+  top: 68vw;
+  margin-bottom: 10vw;
+}
+
+table{
+  border-collapse: collapse;
+  position: absolute;
+  width: 100%;
+  background-color: #fff;
+}
+
+tr th{
+  font-family: 'Lato', sans-serif;
+  font-size: 2vw;
+  font-weight: 300;
+  color: #fff;
+  background-color: #01ABAA;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+td:first-child{
+  width: 20vw;
+}
+
+tr:nth-child(even) {
+  background-color: #e2e2e2;
+}
