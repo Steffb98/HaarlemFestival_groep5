@@ -16,8 +16,18 @@ class Session
 			  $_SESSION['products'] = array();
 		}
 
-      $newCartItems = array('name' => $name,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
-      array_push($_SESSION['products'], $newCartItems);
+    if(array_key_exists($id,$_SESSION['products'])) {
+          if($_SESSION['products'][$id]['date'] == $date && $_SESSION['products'][$id]['time'] == $time){
+               $_SESSION['products'][$id]['amount'] += $amount;
+          }
+     }
+     else{
+       $_SESSION['products'][$id] = array('name' => $name,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
+     }
+    //  $newCartItems = array('name' => $name,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
+    //  array_push($_SESSION['products'], $newCartItems);
+
+
   }
 }
 ?>
