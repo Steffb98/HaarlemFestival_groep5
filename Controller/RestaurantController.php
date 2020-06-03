@@ -1,5 +1,5 @@
 <?php
-require_once '../Model/RestaurantModel.php';
+require_once '../DAL/RestaurantDAL.php';
 
 class RestaurantController
 {

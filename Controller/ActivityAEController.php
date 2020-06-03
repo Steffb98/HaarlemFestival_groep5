@@ -1,48 +1,6 @@
 <?php
 require_once '../DAL/ActivityAEDAL.php';
 
-$activityAE = new ActivityAE;
-
-//if user searches something, a get value is collected
-//this value is passed to the database and filters the restults
-if (isset($_GET['S'])){
-  $_SESSION['ActivityAEActivities'] = GetActivities($_GET['S']);
-}
-else{
-  $_SESSION['ActivityAEActivities'] = GetActivities();
-}
-
-//if actvitiyID is in GET, get the activity with that specific value and make a session out of it
-//if value is not valid return to activityAEView.php.
-if(isset($_GET['ActivityId'])){
-  $activityAE->GetActivity();
-}
-
-//if the submit button is pressed, do the following things
-if (isset($_POST['Submit'])){
-  $activityAE->AddActivity();
-}
-
-//change activity
-if (isset($_POST['CASubmit'])){
-  $activityAE->ChangeActivity();
-}
-
-//small function for deleting an activity
-if(isset($_POST['Delete'])){
-  $activityAE->DeleteActivity();
-}
-
-//if assign volunteer button is pressed, get the activity.
-if(isset($_GET['ActID'])){
-  $_SESSION['ActvitiyVolunteers'] = CMS_ActivityVolunteer($_GET['ActID']);
-}
-
-//if a user is pressed, check if the user is already bound to the activity,
-//if so delete the user from the list, if not add the user to the list.
-if(isset($_POST['AssignVolunteerName'])){
-$activityAE->AssignVolunteer();
-}
 class ActivityAE
 {
   function AddActivity(){
@@ -189,4 +147,48 @@ class ActivityAE
     return false;
   }
 }
+
+$activityAE = new ActivityAE;
+
+//if user searches something, a get value is collected
+//this value is passed to the database and filters the restults
+if (isset($_GET['S'])){
+  $_SESSION['ActivityAEActivities'] = GetActivities($_GET['S']);
+}
+else{
+  $_SESSION['ActivityAEActivities'] = GetActivities();
+}
+
+//if actvitiyID is in GET, get the activity with that specific value and make a session out of it
+//if value is not valid return to activityAEView.php.
+if(isset($_GET['ActivityId'])){
+  $activityAE->GetActivity();
+}
+
+//if the submit button is pressed, do the following things
+if (isset($_POST['Submit'])){
+  $activityAE->AddActivity();
+}
+
+//change activity
+if (isset($_POST['CASubmit'])){
+  $activityAE->ChangeActivity();
+}
+
+//small function for deleting an activity
+if(isset($_POST['Delete'])){
+  $activityAE->DeleteActivity();
+}
+
+//if assign volunteer button is pressed, get the activity.
+if(isset($_GET['ActID'])){
+  $_SESSION['ActvitiyVolunteers'] = CMS_ActivityVolunteer($_GET['ActID']);
+}
+
+//if a user is pressed, check if the user is already bound to the activity,
+//if so delete the user from the list, if not add the user to the list.
+if(isset($_POST['AssignVolunteerName'])){
+$activityAE->AssignVolunteer();
+}
+
 ?>
