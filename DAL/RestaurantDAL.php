@@ -1,11 +1,12 @@
 <?php
 require_once ('DbConn.php');
+require_once '../Model/FoodModel.php';
 $mysqli = Singleton::getInstance();
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-class RestaurantModel
+class RestaurantDAL
 {
   function __construct()
   {
@@ -17,9 +18,13 @@ class RestaurantModel
     $restaurants = array();
     $stmt = $mysqli->query('SELECT * FROM Restaurant');
     if($stmt != ''){
-      while ($item=mysqli_fetch_object($stmt)){
-        array_push($restaurants, $item);
+      foreach ($stmt as $item) {
+        $tempItem = new FoodModel($item["RestaurantID"], $item["Name"],$item["Kitchen"], $item["Stars"], $item["Fish"], $item["Text"], $item["Price"], $item["Location"], $item["IMG"]);
+        array_push($restaurants, $tempItem);
       }
+    //  while ($item=mysqli_fetch_object($stmt)){
+    //    array_push($restaurants, $item);
+    //  }
     }
     return $restaurants;
   }

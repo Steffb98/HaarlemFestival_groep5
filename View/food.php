@@ -39,19 +39,19 @@
 	$result = $object->get_all();
 	foreach ($result as $key)
 	{?>
-		<div class="block <?php echo $key->Kitchen ?>">
+		<div class="block <?php echo $key->get_Kitchen() ?>">
 			<div class="row">
-				<td><img src= ../Assets/<?php echo $key->IMG;?> class="block1"></td>
-				<h4><?php echo $key->Name;?></h4>
-				<div class="text"><p><?php echo $key->Text; ?></p></div>
-				<?php if($key->Fish == true)
+				<td><img src= ../Assets/<?php echo $key->get_Img();?> class="block1"></td>
+				<h4><?php echo $key->get_Name();?></h4>
+				<div class="text"><p><?php echo $key->get_Text(); ?></p></div>
+				<?php if($key->get_Fish() == true)
 				{?>
 					<div class="icons">
 						<i class="fas fa-globe-europe"></i>
 						<i class="fas fa-leaf"></i>
 						<i class="fas fa-fish"></i>
 					</div>
-				<?php } else if($key->Fish == false)
+				<?php } else if($key->get_Fish() == false)
 				{?>
 					<div class="icons">
 						<i class="fas fa-globe-europe"></i>
@@ -60,7 +60,7 @@
 				<?php } ?>
 				<div class="star">
 					<?php
-					for ($i=1; $i <= $key->Stars; $i++)
+					for ($i=1; $i <= $key->get_Stars(); $i++)
 					{?>
 						<i class="fas fa-star"></i>
 					<?php } ?>
@@ -126,11 +126,11 @@
 			foreach ($result as $key)
 			{?>
 				<tr>
-					<td><?php echo $key->Name;?></td>
+					<td><?php echo $key->get_Name();?></td>
 					<td>
 						<select id="time">
 							<?php
-							$sessions = $object1->get_sessions($key->RestaurantID);
+							$sessions = $object1->get_sessions($key->get_RestaurantID());
 							foreach ($sessions as $ses)
 							{?>
 								<?php
@@ -143,10 +143,10 @@
 						</select>
 					</td>
 					<td>
-						<input id="<?php echo $key->RestaurantID;?>_request" name="request" value="yes" type="radio">Yes
-						<input id="<?php echo $key->RestaurantID;?>_request1" name="request" value="no" type="radio" >No
+						<input id="<?php echo $key->get_RestaurantID();?>_request" name="request" value="yes" type="radio">Yes
+						<input id="<?php echo $key->get_RestaurantID();?>_request1" name="request" value="no" type="radio" >No
 					</td>
-					<td>€<?php echo $key->Price;?>,00 p.p.</td>
+					<td>€<?php echo $key->get_Price();?>,00 p.p.</td>
 					<td>
 						<select id="number">
 							<option value="1">1</option>
