@@ -2,6 +2,7 @@
 //First of all the connection to the database is made
 //Every query with userinput is first bound to a parameter to prevent SQLinjection
 require_once ('DbConn.php');
+require_once ('../Model/UserModel.php');
 $mysqli = Singleton::getInstance();
 
 class UserDAL{
@@ -15,17 +16,37 @@ class UserDAL{
     $stmt->prepare("SELECT * FROM User WHERE EmailAddress = ? and Password = ?");
     $stmt->bind_param("ss", $email, $pw);
     $stmt->execute();
-    return mysqli_fetch_assoc($stmt->get_result());
+    $stmt = $stmt->get_result();
+
+    if ($stmt != '') {
+      foreach ($stmt as $user) {
+        return new UserModel($user["FirstName"], $user["LastName"],$user["EmailAddress"], $user["Password"], $user["RegistrationDate"], $user["UserID"]);
+        break;
+      }
+    }
+    else{
+      return null;
+    }
   }
 
   //this function checks if an email already exists in the database
   public function CheckEmailDB($email){
     global $mysqli;
     $stmt = $mysqli->stmt_init();
-    $stmt->prepare("SELECT EmailAddress FROM User WHERE EmailAddress = ?");
+    $stmt->prepare("SELECT * FROM User WHERE EmailAddress = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
-    return mysqli_fetch_assoc($stmt->get_result());
+    $stmt = $stmt->get_result();
+
+    if ($stmt != '') {
+      foreach ($stmt as $user) {
+        return new UserModel($user["FirstName"], $user["LastName"],$user["EmailAddress"], $user["Password"], $user["RegistrationDate"], $user["UserID"]);
+        break;
+      }
+    }
+    else{
+      return null;
+    }
   }
 
   //this function inserts a user in the database

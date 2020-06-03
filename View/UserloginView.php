@@ -6,12 +6,13 @@ $indexObject = new IndexController();
 //Checking if the user has already logged in before. if this is the case, the user is redirected to the user order page.
 if (isset($_SESSION['User_ID'])) {
   $userID = $_SESSION['User_ID'];
-  header("location:UserordersView.php?");
+  //header("location:UserordersView.php?");
 }
 
 //If there was an unsuccesfull login attempt or a succesfull register attempt, the messages will be received here.
 $loginError = $indexObject->CheckSession("lgnError");
 $registerMsg = $indexObject->CheckSession("regSucces");
+
 require '../Controller/UserController.php';
 ?>
 <html lang="en" dir="ltr">
