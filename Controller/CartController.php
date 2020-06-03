@@ -20,16 +20,17 @@ class Session
         array_push($tempArray, $newCartItems);
 
 		}else{
+      $hasBeenAdded = false;
       foreach ($_SESSION['products'] as $product ) {
-
         if($product['id'] == $id){
           $product['amount'] += $amount;
-        }else{
-          $newCartItems = array('uniqid' => $uniqId,'name' => $name,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
-          array_push($tempArray, $newCartItems);
-        }
-
+          $hasBeenAdded = true;
+        }                  
         array_push($tempArray, $product);
+      }
+      if ($hasBeenAdded == false) {
+        $newCartItems = array('uniqid' => $uniqId,'name' => $name,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
+        array_push($tempArray, $newCartItems);
       }
     //  $newCartItems = array('uniqid' => $uniqId,'name' => $name." + ".$id,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
       //  array_push($tempArray, $newCartItems);
