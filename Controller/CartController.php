@@ -16,7 +16,7 @@ class Session
     if(!isset($_SESSION['products']) || empty($_SESSION['products']) )
     {
 			  $_SESSION['products'] = array();
-        $newCartItems = array('uniqid' => $uniqId,'name' => $name." + ".$id,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
+        $newCartItems = array('uniqid' => $uniqId,'name' => $name,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
         array_push($tempArray, $newCartItems);
 
 		}else{
