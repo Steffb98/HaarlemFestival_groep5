@@ -39,16 +39,16 @@ if($loggedInUser->Function != 3){
         foreach ($activityArray as $key) { ?>
           <tr>
             <!-- insert the required information into the textfields of html or something along those lines -->
-            <td <?php if(isset($_GET['ActID'])){if($_GET['ActID'] == $key->ActivityId){echo "style=background-color:#e2e2e2";}} ?>><?php echo $key->Description ?></td>
+            <td <?php if(isset($_GET['ActID'])){if($_GET['ActID'] == $key->getActivityId()){echo "style=background-color:#e2e2e2";}} ?>><?php echo $key->getDescription() ?></td>
               <td>
                 <div class="DetailSection">
-                  <p><span>Date:  </span><?php echo date("D, F j Y" , strtotime($key->Time)); ?></p>
-                  <p><span>Time:  </span><?php echo date("G:i" , strtotime($key->Time)); ?></p>
-                  <p><span>Volunteers still Required:  </span><?php echo $key->VolunteersRequired." (".$key->AmountOfVolunteers.")"; ?></p>
+                  <p><span>Date:  </span><?php echo date("D, F j Y" , strtotime($key->getTime())); ?></p>
+                  <p><span>Time:  </span><?php echo date("G:i" , strtotime($key->getTime())); ?></p>
+                  <p><span>Volunteers still Required:  </span><?php echo $key->getVolunteersRequired()." (".$key->getAmountOfVolunteers().")"; ?></p>
                 </div>
                 <div class="ButtonSection">
-                  <button id="Edit" onclick="OpenEditPanel(<?php echo $key->ActivityId; ?>)" value="nogniks">Edit</button>
-                  <a id="Assign" href="ActivityAEView.php?ActID=<?php echo $key->ActivityId; ?>" onclick="OpenAssignPanel()" value="nogniks">Assign Volunteers</a>
+                  <button id="Edit" onclick="OpenEditPanel(<?php echo $key->getActivityId(); ?>)" value="nogniks">Edit</button>
+                  <a id="Assign" href="ActivityAEView.php?ActID=<?php echo $key->getActivityId(); ?>" onclick="OpenAssignPanel()" value="nogniks">Assign Volunteers</a>
                 </div>
               </td>
             </tr>
