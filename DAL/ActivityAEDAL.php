@@ -1,12 +1,13 @@
 <?php
 require_once '../DAL/DbConn.php';
+require_once '../Model/ActivityModel.php';
 
 $mysqli = Singleton::getInstance();
 
 //get all activities if no filter is set or change is set,
 //if filter is set get only rows with the filter
 //if filter and change is set, get rows with the filter and return inmidiatly
-function GetActivities(string $filter = NULL, bool $change = false){
+function GetActivities( $filter = NULL,  $change = false){
   $activityList = array();
 
 
@@ -19,7 +20,7 @@ function GetActivities(string $filter = NULL, bool $change = false){
     $filter = "%".$filter."%";
     global $mysqli;
     $stmt = $mysqli->stmt_init();
-    $stmt->prepare('SELECT ActivityId, Description, Time, Location, AmountOfVolunteers FROM Activity WHERE Description LIKE ? OR Location LIKE ? OR AmountOfVolunteers LIKE ? OR ActivityId LIKE ? ORDER BY AmountOfVolunteers DESC');
+    $stmt->prepare('SELECT A.ActivityId, A.Description, Time, A.Location, AmountOfVolunteers, AmountOfVolunteers - COUNT(AV.ActivityID) AS VolunteersRequired FROM Activity AS A LEFT JOIN ActivityVolunteer AS AV ON AV.ActivityID = A.ActivityID WHERE A.Description LIKE ? OR A.Location LIKE ? OR A.AmountOfVolunteers LIKE ? OR A.ActivityId LIKE ? ORDER BY A.AmountOfVolunteers DESC');
     $stmt->bind_param("ssss", $filter, $filter, $filter, $filter);
     $stmt->execute();
     $stmt = $stmt->get_result();
@@ -38,14 +39,21 @@ function GetActivities(string $filter = NULL, bool $change = false){
 
   $activityList = array();
   if($stmt != ''){
-    while ($activity=mysqli_fetch_object($stmt)){
-      array_push($activityList, $activity);
+    foreach ($stmt as $item) {
+      $tempItem = new ActivityModel($item["ActivityId"], $item["Description"],$item["Time"], $item["Location"], $item["AmountOfVolunteers"], $item["VolunteersRequired"]);
+      array_push($activityList, $tempItem);
     }
   }
+
+//  if($stmt != ''){
+//    while ($activity=mysqli_fetch_object($stmt)){
+//      array_push($activityList, $activity);
+//    }
+//  }
   return $activityList;
 }
 
-function CMS_AddActivity($AcDescription, $AcDate, $AcStartTime, int $AcVolReq, $AcLocation){
+function CMS_AddActivity($AcDescription, $AcDate, $AcStartTime, $AcVolReq, $AcLocation){
 
   $dateTime = date("Y-m-d", strtotime($AcDate))." ".date("G:i:s", strtotime($AcStartTime));
 
