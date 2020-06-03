@@ -97,7 +97,7 @@ if(empty($_SESSION['products']))
 					<p><?php print $cart['price'];?>,00 p.p.</p>
 				</td>
 				<td>
-					<a href="../Controller/deleteSessieController.php?id=<?php print $cart['id']?>"><i class="fas fa-trash"></i></a>
+					<a href="../Controller/deleteSessieController.php?id=<?php print $cart['uniqid']?>"><i class="fas fa-trash"></i></a>
 				</td>
 			</tr>
 			<tr>

@@ -8,7 +8,7 @@ public $Object;
 
   function __construct()
   {
-  $this->Object = new RestaurantModel();
+    $this->Object = new RestaurantDAL();
   }
 
   public function get_all()

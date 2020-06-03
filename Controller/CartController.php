@@ -10,22 +10,32 @@ class Session
   {
     $price = preg_replace("/[^0-9\,]/", "", $price);
     $newPrice= (float) $price;
+    $uniqId = md5(uniqId(rand(),1));
+    $tempArray = array();
     //if the session is empty or unset make the session
     if(!isset($_SESSION['products']) || empty($_SESSION['products']) )
     {
 			  $_SESSION['products'] = array();
-		}
+        $newCartItems = array('uniqid' => $uniqId,'name' => $name." + ".$id,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
+        array_push($tempArray, $newCartItems);
 
-    if(array_key_exists($id,$_SESSION['products'])) {
-          if($_SESSION['products'][$id]['date'] == $date && $_SESSION['products'][$id]['time'] == $time){
-               $_SESSION['products'][$id]['amount'] += $amount;
-          }
-     }
-     else{
-       $_SESSION['products'][$id] = array('name' => $name,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
-     }
-    //  $newCartItems = array('name' => $name,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
-    //  array_push($_SESSION['products'], $newCartItems);
+		}else{
+      foreach ($_SESSION['products'] as $product ) {
+
+        if($product['id'] == $id){
+          $product['amount'] += $amount;
+        }else{
+          $newCartItems = array('uniqid' => $uniqId,'name' => $name,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
+          array_push($tempArray, $newCartItems);
+        }
+
+        array_push($tempArray, $product);
+      }
+    //  $newCartItems = array('uniqid' => $uniqId,'name' => $name." + ".$id,'price' =>$newPrice, 'amount' => $amount, 'location' => $location, 'date' => $date,'time' => $time, 'id' => $id, 'specialText' => $specialtext, 'type' => $type);
+      //  array_push($tempArray, $newCartItems);
+    }
+    $_SESSION['products'] = $tempArray;
+
 
 
   }
