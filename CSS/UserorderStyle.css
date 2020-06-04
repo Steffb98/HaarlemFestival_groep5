@@ -23,35 +23,28 @@ body{
 }
 
 .UserOrderText{
-  font-size:1.3vw;
-  margin-top:1vw;
+  font-size:1.2vw;
   position: absolute;
 }
 
 #NameArtist{
   margin-left:20vw;
   font-size:1.8vw;
-  padding-bottom: 1vw;
 }
 
 #OrderNumberandNameText{
-  margin-top:3vw;
-  margin-left:20vw;
-}
-
-#DateandTimeText{
-  margin-left:20vw;
-  margin-top:3vw;
+  margin-bottom : 4vh;
 }
 
 #PriceandAmountText{
-  margin-left:50vw;
-  margin-top:-7vw;
+  min-width: 20vw;
+  margin-left:25vw;
+  margin-top:-8vw;
+  margin-bottom : 4vh;
 }
 
 #LocationText{
-  margin-left:50vw;
-  margin-top:3vw;
+  margin-left:25vw;
 }
 
 .OrderTicketPicture{

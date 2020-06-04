@@ -1,4 +1,5 @@
 <?php require "../DAL/UserDAL.php";
+  require_once '../Model/TicketModel.php';
 
 class UserController
 {
@@ -11,28 +12,8 @@ class UserController
   }
 
   //this function returns the purchased tickets for the logged in user from the database
-  public function GetUserOrderInfo($userID){
+  public function GetTicketsWithUserID($userID){
     return $this->object->GetUserOrderInfoDB($userID);
-  }
-
-  //This function returns the id and starttime (and endtime) for a specific ticket from the database
-  public function GetTicketInfo($RID, $DID, $BID){
-    return $this->object->GetSessionInfoDB($RID, $DID, $BID);
-  }
-
-  //This function returns the name and image for a band or dj from the database
-  public function GetNameAndIMG($DJID, $BandID){
-    return $this->object->GetNameAndIMGDB($DJID, $BandID);
-  }
-
-  //this function returns the location of a band- or DJ-session from the database
-  public function GetTicketLocation($locationID){
-    return $this->object->GetTicketLocationDB($locationID);
-  }
-
-  //this function will return the location of a restaurant from the database
-  public function GetTicketLocationRes($restaurantID){
-    return $this->object->GetTicketLocationResDB($restaurantID);
   }
 }
 
