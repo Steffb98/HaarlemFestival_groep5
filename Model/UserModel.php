@@ -8,7 +8,17 @@ class UserModel
   private $registrationDate;
   private $userID;
 
-  function __construct($firstName, $lastName, $email, $password, $registrationDate, $userID)
+  public function __construct()
+  {
+      $arguments = func_get_args();
+      $numberOfArguments = func_num_args();
+
+      if (method_exists($this, $function = '__construct'.$numberOfArguments)) {
+          call_user_func_array(array($this, $function), $arguments);
+      }
+  }
+
+  function __construct6($firstName, $lastName, $email, $password, $registrationDate, $userID)
   {
       $this->firstName = $firstName;
       $this->lastName = $lastName;
@@ -16,6 +26,12 @@ class UserModel
       $this->password = $password;
       $this->RegistrationDate = $registrationDate;
       $this->userID = $userID;
+  }
+
+  function __construct2($firstName, $lastName)
+  {
+      $this->firstName = $firstName;
+      $this->lastName = $lastName;
   }
 
   public function getFirstName()
