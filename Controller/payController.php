@@ -3,15 +3,16 @@ session_start();
   require_once 'ticketsDBController.php';
   $object = new ticketController();
   $order = $object->orderID();
+  $Price =  $_POST['totalPrice'];
   //put tickets in database
   foreach($_SESSION['products'] as $cart)
   {
     $result1 = $object->getSessionID($cart['type'],$cart['id'],$cart['date'],$cart['time']);
-  	$result = $object->ticketinDB($order['OrderID'],$cart['specialText'],$_SESSION['User_ID'],$_SESSION['TotalPrice'],$cart['amount'],$result1['SessionID'],$cart['type']);
+  	$result = $object->ticketinDB($order['OrderID'],$cart['specialText'],$_SESSION['User_ID'],$Price,$cart['amount'],$result1['SessionID'],$cart['type']);
   }
 //unset session for the tickets
 unset($_SESSION["products"]);
- $Price =  $_POST['totalPrice'];
+
  $totalPrice = number_format((int)$Price, 2);
  print_r($totalPrice);
 ini_set('display_errors', 1);
