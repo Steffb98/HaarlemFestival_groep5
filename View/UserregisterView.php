@@ -24,9 +24,15 @@ require '../Controller/UserController.php'
       <!-- if there was an error while trying to register, it will be displayed here -->
       <p id=ErrorMessage><?php echo $regError ?></p>
       <!-- Ask the user for input -->
-      <i class="fas fa-user"></i><input type="Text" name="regFirstName" placeholder="First Name" class="userformtextbox" required></br>
-      <i class="fas fa-user"></i><input type="Text" name="regLastName" placeholder="Last Name" class="userformtextbox" required></br>
-      <i class="fas fa-envelope-square"></i><input type="Email" name="regEmail" placeholder="Email" class="userformtextbox" required></br>
+      <i class="fas fa-user"></i><input type="Text" name="regFirstName" placeholder="First Name" class="userformtextbox" value="<?php if (isset($_SESSION['regFN'])) {
+        echo $_SESSION['regFN'];
+      } ?>" required></br>
+      <i class="fas fa-user"></i><input type="Text" name="regLastName" placeholder="Last Name" class="userformtextbox" value="<?php if (isset($_SESSION['regLN'])) {
+        echo $_SESSION['regLN'];
+      } ?>" required></br>
+      <i class="fas fa-envelope-square"></i><input type="Email" name="regEmail" placeholder="Email" class="userformtextbox" value="<?php if (isset($_SESSION['regEmail'])) {
+        echo $_SESSION['regEmail'];
+      } ?>" required></br>
       <i class="fas fa-lock"></i><input type="Password" name="regPassword1" placeholder="Password" class="userformtextbox" required></br>
       <i class="fas fa-lock"></i><input type="Password" name="regPassword2" placeholder="Password again" class="userformtextbox" required></br>
       <!-- The captcha is shown here -->
