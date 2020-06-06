@@ -5,7 +5,7 @@ include_once('SideBars.php');
 require('../Controller/ActivityController.php');
 
 $getActivity = new GetActivity();
-$getActivity->GetActivity2();
+$getActivity->GetActivity();
 ?>
 <html>
 <head>

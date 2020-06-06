@@ -9,7 +9,17 @@ class ActivityModel
     private $amountOfVolunteers;
     private $volunteersRequired;
 
-    function __construct($tempActivityId, $description, $time, $location, $amountOfVolunteers, $volunteersRequired)
+    public function __construct()
+    {
+        $arguments = func_get_args();
+        $numberOfArguments = func_num_args();
+
+        if (method_exists($this, $function = '__construct'.$numberOfArguments)) {
+            call_user_func_array(array($this, $function), $arguments);
+        }
+    }
+
+    function __construct6($tempActivityId, $description, $time, $location, $amountOfVolunteers, $volunteersRequired)
     {
         $this->activityId = $tempActivityId;
         $this->description = $description;
@@ -17,6 +27,15 @@ class ActivityModel
         $this->location = $location;
         $this->amountOfVolunteers = $amountOfVolunteers;
         $this->volunteersRequired = $volunteersRequired;
+    }
+
+    function __construct5($tempActivityId, $description, $time, $location, $amountOfVolunteers)
+    {
+        $this->activityId = $tempActivityId;
+        $this->description = $description;
+        $this->time = $time;
+        $this->location = $location;
+        $this->amountOfVolunteers = $amountOfVolunteers;
     }
 
     public function getActivityId()

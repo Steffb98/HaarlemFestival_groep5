@@ -4,7 +4,7 @@ require_once '../DAL/ActivityDAL.php';
 
 class GetActivity
 {
-  function GetActivity2(){
+  function GetActivity(){
     //get all activities from the database belonging to the volunteer
     $activityArray = CMS_GetActivity($_SESSION['LoggedInUser']->VolunteerID);
     //make an array for all the days
@@ -21,17 +21,12 @@ class GetActivity
       for ($i=0; $i < count($dayList); $i++) {
         //if the day is not empty
         if($dayList[$i] != NULL){
-          //grab one activity from the daylist
-          foreach ($dayList[$i] as $key) {
-            //if the date corresponds with the date from the activity gotten from the database
-            if (date("m-d-Y",strtotime($key->Time)) == date("m-d-Y",strtotime($tempActivity->Time))){
+            //if the date corresponds with the date from the activity in the dayList gotten from the database
+            if (date("m-d-Y",strtotime($dayList[$i][0]->Time)) == date("m-d-Y",strtotime($tempActivity->Time))){
               //place the activity in that day
               array_push($dayList[$i], $tempActivity);
               //and set the success meter on success
               $sucessBool = true;
-              //break out of the loop so only one activity of the day has to be checked
-              break;
-            }
             //break out of the loop to check for days
             break;
           }
@@ -41,22 +36,14 @@ class GetActivity
       //check if the success meter is on Fail
       if($sucessBool == false){
         //empty an array
-        $activityList = array();
+        $day = array();
         //put the activity in the activitylist
-        array_push($activityList, $tempActivity);
+        array_push($day, $tempActivity);
         //put the activitylist in the daylist
-        array_push($dayList, $activityList);
+        array_push($dayList, $day);
       }
     }
     $_SESSION['days'] = $dayList;
   }
 }
-
-function TestFunction2($array){
-  echo '<pre>';
-  print_r($array);
-  echo '</pre>';
-}
-//            echo date("m-d-Y",strtotime($key[0]->Time)), "---", date("m-d-Y",strtotime($tempActivity->Time)),"###############";
-
 ?>
