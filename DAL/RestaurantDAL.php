@@ -22,9 +22,6 @@ class RestaurantDAL
         $tempItem = new FoodModel($item["RestaurantID"], $item["Name"],$item["Kitchen"], $item["Stars"], $item["Fish"], $item["Text"], $item["Price"], $item["Location"], $item["IMG"]);
         array_push($restaurants, $tempItem);
       }
-    //  while ($item=mysqli_fetch_object($stmt)){
-    //    array_push($restaurants, $item);
-    //  }
     }
     return $restaurants;
   }

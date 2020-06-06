@@ -1,16 +1,11 @@
 <?php
 session_start();
+require '../Controller/IndexController.php';
+$indexObject = new IndexController();
 ?>
-<!DOCTYPE html5>
 <html lang="en">
 <head>
-	<meta charset= "utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../CSS/cartStyle.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/df166940c3.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-</script>
+	  <?php $indexObject->SetMetaTags('Cart','cartStyle') ?>
 </head>
 <body>
 <?php
@@ -90,8 +85,8 @@ if(empty($_SESSION['products']))
 					<p value="<?php print $cart['name'];?>"><?php print $cart['name'];?></p>
 				</td>
 				<td>
-					<a href="../Controller/changeAmountController.php?id=<?php print $cart['id']?>&amount=<?php print $cart['amount']?>&value=min"><p><i class="fas fa-minus"></i></a>
-					<a href="../Controller/changeAmountController.php?id=<?php print $cart['id']?>&amount=<?php print $cart['amount']?>&value=plus"><i class="fas fa-plus"></i></a><?php print $cart['amount'];?></p>
+					<a href="../Controller/changeAmountController.php?id=<?php print $cart['uniqid']?>&amount=<?php print $cart['amount']?>&value=min"><p><i class="fas fa-minus"></i></a>
+					<a href="../Controller/changeAmountController.php?id=<?php print $cart['uniqid']?>&amount=<?php print $cart['amount']?>&value=plus"><i class="fas fa-plus"></i></a><?php print $cart['amount'];?></p>
 				</td>
 				<td>
 					<p><?php print $cart['price'];?>,00 p.p.</p>

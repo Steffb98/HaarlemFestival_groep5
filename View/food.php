@@ -1,17 +1,14 @@
-<!DOCTYPE html5>
-<html lang="en">
+<?php
+require '../Controller/RestaurantController.php';
+require '../Controller/IndexController.php';
+
+$indexObject = new IndexController();
+$kitchen = new RestaurantController();
+ ?>
 <head>
-	<meta charset= "utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="../CSS/foodStyle.css">
-	<link href="https://fonts.googleapis.com/css?family=Lato:300,400&display=swap" rel="stylesheet">
-	<script src="https://kit.fontawesome.com/df166940c3.js" crossorigin="anonymous"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+	  <?php $indexObject->SetMetaTags('Food evenement','foodStyle') ?>
 </head>
+
 <body onload="filterSelection('all')">
 
 	<div id="foodnavbar">
@@ -26,7 +23,7 @@
 		<button class="btnFilter active" onclick="filterSelection('all')"> Show all</button>
 		<?php
 		require_once '../Controller/RestaurantController.php';
-		$kitchen = new RestaurantController();
+
 		$kitchenList = $kitchen->get_Kitchen();
 		  foreach ($kitchenList as $key){?>
 					<button class="btnFilter" onclick="filterSelection('<?php echo $key->Kitchen; ?>')"> <?php echo $key->Kitchen; ?></button>
@@ -34,9 +31,7 @@
 	</div>
 
 	<?php
-	require_once '../Controller/RestaurantController.php';
-	$object = new RestaurantController();
-	$result = $object->get_all();
+	$result = $kitchen->get_all();
 	foreach ($result as $key)
 	{?>
 		<div class="block <?php echo $key->get_Kitchen() ?>">
@@ -120,17 +115,15 @@
 				<th>Amount</th>
 			</tr>
 			<?php
-			require_once '../Controller/RestaurantController.php';
-			$object1 = new RestaurantController();
-			$result = $object1->get_all();
+			$result = $kitchen->get_all();
 			foreach ($result as $key)
 			{?>
-				<tr>
+				<tr id=" " class="restaurant">
 					<td><?php echo $key->get_Name();?></td>
 					<td>
 						<select id="time">
 							<?php
-							$sessions = $object1->get_sessions($key->get_RestaurantID());
+							$sessions = $kitchen->get_sessions($key->get_RestaurantID());
 							foreach ($sessions as $ses)
 							{?>
 								<?php
@@ -225,15 +218,10 @@ function Change(name,id)
 {
 	document.getElementById("text").innerHTML = name;
 	document.getElementsByTagName("table")[0].setAttribute("id",id);
-        if (id === "")
-				{
-           $(".timeOption").show();
-        }
-				else
-				{
-           $(".timeOption").hide();
-           $(".timeOption[data-id='" + id + "']").show().prop('selected', true);
-        }
+
+    $(".timeOption").hide();
+    $(".timeOption[data-id='" + id + "']").show().prop('selected', true);
+
 }
 
 function filterSelection(c)

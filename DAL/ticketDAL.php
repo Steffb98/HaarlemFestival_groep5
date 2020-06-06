@@ -2,7 +2,7 @@
 require_once ('DbConn.php');
 $mysqli = Singleton::getInstance();
 
-class ticketModel
+class ticketDAL
 {
   function __construct()
   {}
@@ -18,6 +18,10 @@ class ticketModel
     else if ($type == "jazz")
     {
       $sql = "SELECT BSessionID as SessionID FROM BandSessions WHERE BandID = ? AND StartTime = ?";
+    }
+    else if ($type == "dance")
+    {
+      $sql = "SELECT DSessionID as SessionID FROM DJSessions WHERE DJID = ? AND StartTime = ?";
     }
     $stmt = $mysqli->stmt_init();
     $stmt->prepare($sql);
@@ -51,6 +55,12 @@ class ticketModel
     {
       $reservationfee = 0;
       $sql = "INSERT INTO OrderCart (OrderID, BSessionID, Amount, UserID, RequestText, ReservationFee, TotalPrice, VAT )
+      VALUES(?,?,?,?,?,?,?,?)";
+    }
+    else if ($type == "dance")
+    {
+      $reservationfee = 0;
+      $sql = "INSERT INTO OrderCart (OrderID, DSessionID, Amount, UserID, RequestText, ReservationFee, TotalPrice, VAT )
       VALUES(?,?,?,?,?,?,?,?)";
     }
     $stmt = $mysqli->stmt_init();
