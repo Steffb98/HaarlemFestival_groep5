@@ -34,7 +34,9 @@ require '../Controller/UserController.php';
       <!-- if there was a succesfull registration confirmed, a message will be displayed here -->
       <p id=regSucces><?php echo $registerMsg ?></p>
       <!-- Ask the user for input -->
-      <i class="fas fa-envelope-square"></i><input type="Email" name="LoginEmail" placeholder="Email" class="userformtextbox" id="userloginformnametb" required></br>
+      <i class="fas fa-envelope-square"></i><input type="Email" name="LoginEmail" placeholder="Email" value="<?php if (isset($_SESSION['lgnEmail'])) {
+        echo $_SESSION['lgnEmail'];
+      } ?>" class="userformtextbox" id="userloginformnametb" required></br>
       <i class="fas fa-lock"></i><input type="Password" name="LoginPassword" placeholder="Password" class="userformtextbox" id="userloginformpasswordtb" required></br>
       <!-- this button will call the function to check if the login information is correct or not in the user controller -->
       <input type="Submit" name="login_submit" class="formbutton" value="Login">
