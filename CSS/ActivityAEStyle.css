@@ -227,7 +227,7 @@ body{
 }
 
 .scrolltable2{
-  height: 10vw;
+  height: 16vw;
   overflow: auto;
   display: fixed;
   position: relative;

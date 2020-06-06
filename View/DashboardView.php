@@ -11,7 +11,7 @@ $getUpdate = new GetUpdates();
 $getUpdate->GetUpdates2();
 
 $getActivity = new GetActivity();
-$getActivity->GetActivity2();
+$getActivity->GetActivity();
 
 $getMessage = new GetMessage();
 $getMessage->GetMessage2();
