@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <?php
 session_start();
-session_destroy();
 require '../Controller/UserController.php';
 require '../Controller/IndexController.php';
 //the userid of the user currently logged in is received here
