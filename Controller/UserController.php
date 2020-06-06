@@ -1,6 +1,5 @@
 <?php require "../DAL/UserDAL.php";
   require_once '../Model/TicketModel.php';
-  //session_destroy();
 
 class UserController
 {
@@ -73,7 +72,7 @@ if (isset($_POST['login_submit']))
   $pw=$_POST['LoginPassword'];
 
   //Checking if the email and password are in the database and belong to eachother
-  $user = $Object->CheckIfLoginExistsDB($email, hash('sha512', $pw));
+  $user = $userDALObject->CheckIfLoginExistsDB($email, hash('sha512', $pw));
 
   //If the database returns a user, the user is redirected to the user order page and the userid is saved in a session
   if (!empty($user)) {
