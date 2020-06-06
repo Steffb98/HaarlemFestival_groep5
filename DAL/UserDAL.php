@@ -1,8 +1,9 @@
 <?php
 //First of all the connection to the database is made
 //Every query with userinput is first bound to a parameter to prevent SQLinjection
-require_once ('DbConn.php');
-require_once ('../Model/UserModel.php');
+require_once 'DbConn.php';
+require_once '../Model/UserModel.php';
+require_once '../Model/TicketModel.php';
 $mysqli = Singleton::getInstance();
 
 class UserDAL{
@@ -72,78 +73,149 @@ class UserDAL{
       $stmt->execute();
       $result = $stmt->get_result();
 
-      $infoArray = array();
-      //Every ticket that is found with this userid is returned in an array
-      while ($item=mysqli_fetch_array($result)){
-        array_push($infoArray, $item);
+      $ticketArray = array();
+
+      foreach ($result as $tmpTicket) {
+        $ticket;
+        //if the restaurantsessionid is set the ticket is for a restaurant and the correct info will be called from the database
+        if ($tmpTicket['RSessionID'] != NULL) {
+          $ticket = new TicketModel($tmpTicket['OrderID'], $tmpTicket['RSessionID'], $tmpTicket['Amount'], $tmpTicket['TotalPrice'], $tmpTicket['FirstName'], $tmpTicket['LastName']);
+          $ticket = $this->GetSessionInfoRestaurantDB($ticket);
+          $ticket = $this->GetTicketLocationResDB($ticket);
+        }
+        //if the DJid is set the ticket is for a DJ and the correct info will be called from the database
+        elseif($tmpTicket['DSessionID'] != NULL){
+          $ticket = new TicketModel($tmpTicket['OrderID'], $tmpTicket['DSessionID'], $tmpTicket['Amount'], $tmpTicket['TotalPrice'], $tmpTicket['FirstName'], $tmpTicket['LastName']);
+          $ticket = $this->GetSessionInfoDJDB($ticket);
+          $ticket = $this->GetTicketLocationDB($ticket);
+          $ticket = $this->GetNameAndIMGDJDB($ticket);
+        }
+        //if the bandsessionid is set the ticket is for a band and the correct info will be called from the database
+        elseif($tmpTicket['BSessionID'] != NULL){
+          $ticket = new TicketModel($tmpTicket['OrderID'], $tmpTicket['BSessionID'], $tmpTicket['Amount'], $tmpTicket['TotalPrice'], $tmpTicket['FirstName'], $tmpTicket['LastName']);
+
+          $ticket = $this->GetSessionInfoJazzDB($ticket);
+          $ticket = $this->GetTicketLocationDB($ticket);
+          $ticket = $this->GetNameAndIMGJazzDB($ticket);
+        }
+        array_push($ticketArray, $ticket);
       }
-      return $infoArray;
+      return $ticketArray;
     }
 
-    //This function gets some more info about a specific ticket (in case of DJ/Band: LocationID, starttime, endtime and the id of the band/dj
-    //in case of restaurant the restaurantid and starttime)
-    public function GetSessionInfoDB($RID, $DID, $BID){
-      $ID;
+    //This function gets some more info about a specific restaurant ticket
+    public function GetSessionInfoRestaurantDB($ticket){
+      $sessionID = $ticket->getSessionID();
       global $mysqli;
+
       $stmt = $mysqli->stmt_init();
-      //if the ticket is for a jazzband, the information is received from the bandsession table
-      if ($RID == NULL && $DID == NULL) {
-        $stmt->prepare("SELECT LocationID, StartTime, EndTime, BandID FROM BandSessions WHERE BSessionID = ?");
-        $ID = $BID;
-      }
-      //if the ticket is for a DJ, the information is received from the DJsession table
-      elseif ($RID == NULL && $BID == NULL) {
-        $stmt->prepare("SELECT LocationID, StartTime, EndTime, DJID FROM DJSessions WHERE DSessionID = ?");
-        $ID = $DID;
-      }
-      //if the ticket is for a restaurant, the information is received from the restaurantsession table
-      elseif ($DID == NULL && $BID == NULL) {
-        $stmt->prepare("SELECT RestaurantID, StartTime FROM RestaurantSessions WHERE RSessionID = ?");
-        $ID = $RID;
-      }
-      $stmt->bind_param("i", $ID);
+      $stmt->prepare("SELECT RestaurantID, StartTime FROM RestaurantSessions WHERE RSessionID = ?");
+      $stmt->bind_param("i", $sessionID);
       $stmt->execute();
-      return mysqli_fetch_assoc($stmt->get_result());
+      $result = mysqli_fetch_object($stmt->get_result());
+      $ticket->setLocationID($result->RestaurantID);
+      $ticket->setStartTime($result->StartTime);
+      $ticket->setEventID($result->RestaurantID);
+      return $ticket;
+    }
+
+    //This function gets some more info about a specific Dj ticket
+    public function GetSessionInfoDJDB($ticket){
+      $sessionID = $ticket->getSessionID();
+      global $mysqli;
+
+      $stmt = $mysqli->stmt_init();
+      $stmt->prepare("SELECT LocationID, StartTime, EndTime, DJID FROM DJSessions WHERE DSessionID = ?");
+      $stmt->bind_param("i", $ticket->getSessionID);
+      $stmt->execute();
+      $result = mysqli_fetch_object($stmt->get_result());
+
+      $ticket->setLocationID($result->LocationID);
+      $ticket->setStartTime($result->StartTime);
+      $ticket->setEndTime($result->EndTime);
+      $ticket->setEventID($result->DJID);
+      return $ticket;
+    }
+
+    //This function gets some more info about a specific band ticket
+    public function GetSessionInfoJazzDB($ticket){
+      $sessionID = $ticket->getSessionID();
+      global $mysqli;
+
+      $stmt = $mysqli->stmt_init();
+      $stmt->prepare("SELECT LocationID, StartTime, EndTime, BandID FROM BandSessions WHERE BSessionID = ?");
+      $stmt->bind_param("i", $sessionID);
+      $stmt->execute();
+      $result = mysqli_fetch_object($stmt->get_result());;
+      $ticket->setLocationID($result->LocationID);
+      $ticket->setStartTime($result->StartTime);
+      $ticket->setEndTime($result->EndTime);
+      $ticket->setEventID($result->BandID);
+      return $ticket;
     }
 
     //If a specific ticket is for a Dj/band, the address and venue is received from the location table
-    public function GetTicketLocationDB($locationID){
+    public function GetTicketLocationDB($ticket){
+      $locationID = $ticket->getLocationID();
       global $mysqli;
       $stmt = $mysqli->stmt_init();
       $stmt->prepare("SELECT Address, Venue FROM Location WHERE LocationID = ?");
       $stmt->bind_param("i", $locationID);
       $stmt->execute();
-      return mysqli_fetch_assoc($stmt->get_result());
+      $result = mysqli_fetch_object($stmt->get_result());
+
+      $ticket->setAddress($result->Address);
+      $ticket->setVenue($result->Venue);
+
+      return $ticket;
     }
 
     //If a specific ticket is for a restaurant, the location, name and image is received from the restaurant table
-    public function GetTicketLocationResDB($restaurantID){
+    public function GetTicketLocationResDB($ticket){
+      $restaurantID = $ticket->getEventID();
       global $mysqli;
       $stmt = $mysqli->stmt_init();
       $stmt->prepare("SELECT Location, Name, IMG FROM Restaurant WHERE RestaurantID = ?");
       $stmt->bind_param("i", $restaurantID);
       $stmt->execute();
-      return mysqli_fetch_assoc($stmt->get_result());
+      $result = mysqli_fetch_object($stmt->get_result());
+
+      $ticket->setAddress($result->Location);
+      $ticket->setName($result->Name);
+      $ticket->setVenue($result->Name);
+      $ticket->setIMG($result->IMG);
+
+      return $ticket;
+    }
+    //if the ticket is for a band, the name and img are received from the band table
+    public function GetNameAndIMGJazzDB($ticket){
+      $eventID = $ticket->getEventID();
+      global $mysqli;
+      $stmt = $mysqli->stmt_init();
+      $stmt->prepare("SELECT Name, IMG FROM Band WHERE BandID = ?");
+      $stmt->bind_param("i", $eventID);
+      $stmt->execute();
+      $result = mysqli_fetch_object($stmt->get_result());
+
+      $ticket->setName($result->Name);
+      $ticket->setIMG($result->IMG);
+
+      return $ticket;
     }
 
-    //if the ticket is for a band/dj, the name and image are received from the respective tables
-    public function GetNameAndIMGDB($DID, $BID){
+    //if the ticket is for a dj, the name and img are received from the dj table
+    public function GetNameAndIMGDJDB($ticket){
       global $mysqli;
-      $ID;
       $stmt = $mysqli->stmt_init();
-      //if the ticket is for a jazzband, the information is received from the band table
-      if ($DID == null){
-        $stmt->prepare("SELECT Name, IMG FROM Band WHERE BandID = ?");
-        $ID = $BID;
-      }
-      elseif ($BID == null) {
-        //if the ticket is for a DJ, the information is received from the Dj table
-        $stmt->prepare("SELECT Name, IMG FROM DJ WHERE DJID = ?");
-        $ID = $DID;
-      }
-      $stmt->bind_param("i", $ID);
+      $stmt->prepare("SELECT Name, IMG FROM DJ WHERE DJID = ?");
+      $stmt->bind_param("i", $ticket->getEventID);
       $stmt->execute();
-      return mysqli_fetch_assoc($stmt->get_result());
+      $result = mysqli_fetch_object($stmt->get_result());
+
+      $ticket->setName($result->Name);
+      $ticket->setIMG($result->IMG);
+
+      return $ticket;
     }
   }
   ?>
