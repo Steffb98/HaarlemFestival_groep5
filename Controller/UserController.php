@@ -1,5 +1,6 @@
 <?php require "../DAL/UserDAL.php";
   require_once '../Model/TicketModel.php';
+  //session_destroy();
 
 class UserController
 {
@@ -15,45 +16,54 @@ class UserController
   public function GetTicketsWithUserID($userID){
     return $this->object->GetUserOrderInfoDB($userID);
   }
+
+  //This function checks if a password meets some basic requirements
+  function CheckPassword($pw) {
+    //if the length of a password is less than 8, an error is show to the user
+    if (strlen($pw) < 8) {
+      $regError = "Your password must contain at least 8 characters!";
+      $_SESSION['regError'] = $regError;
+      header('location:UserregisterView.php');
+      return false;
+    }
+    //if the password doesnt contain a number, an error is shown to the user
+    elseif (!preg_match("#[0-9]+#", $pw)) {
+      $regError = "Your password must contain at least 1 number!";
+      $_SESSION['regError'] = $regError;
+      header('location:UserregisterView.php');
+      return false;
+    }
+    //if the password doesnt contain a capital letter, an error is shown to the user
+    elseif (!preg_match("#[A-Z]+#", $pw)) {
+      $regError = "Your password must contain at least 1 capital letter!";
+      $_SESSION['regError'] = $regError;
+      header('location:UserregisterView.php');
+      return false;
+    }
+    //if the password doesnt contain a lowercase letter, an error is shown to the user
+    elseif (!preg_match("#[a-z]+#", $pw)) {
+      $regError = "Your password must contain at least 1 lowercase letter!";
+      $_SESSION['regError'] = $regError;
+      header('location:UserregisterView.php');
+      return false;
+    }
+    //if these 4 requirements are met, the function returns true (which means that the password is good)
+    else {
+      return true;
+    }
+  }
+
+  function GiveRegError($err, $fn, $ln, $email){
+    $_SESSION['regError'] = $err;
+    $_SESSION['regFN'] = $fn;
+    $_SESSION['regLN'] = $ln;
+    $_SESSION['regEmail'] = $email;
+    header('location:UserregisterView.php');
+  }
 }
 
-//This function checks if a password meets some basic requirements
-function CheckPassword($pw) {
-  //if the length of a password is less than 8, an error is show to the user
-  if (strlen($pw) < 8) {
-    $regError = "Your password must contain at least 8 characters!";
-    $_SESSION['regError'] = $regError;
-    header('location:UserregisterView.php');
-    return false;
-  }
-  //if the password doesnt contain a number, an error is shown to the user
-  elseif (!preg_match("#[0-9]+#", $pw)) {
-    $regError = "Your password must contain at least 1 number!";
-    $_SESSION['regError'] = $regError;
-    header('location:UserregisterView.php');
-    return false;
-  }
-  //if the password doesnt contain a capital letter, an error is shown to the user
-  elseif (!preg_match("#[A-Z]+#", $pw)) {
-    $regError = "Your password must contain at least 1 capital letter!";
-    $_SESSION['regError'] = $regError;
-    header('location:UserregisterView.php');
-    return false;
-  }
-  //if the password doesnt contain a lowercase letter, an error is shown to the user
-  elseif (!preg_match("#[a-z]+#", $pw)) {
-    $regError = "Your password must contain at least 1 lowercase letter!";
-    $_SESSION['regError'] = $regError;
-    header('location:UserregisterView.php');
-    return false;
-  }
-  //if these 4 requirements are met, the function returns true (which means that the password is good)
-  else {
-    return true;
-  }
-}
-
-$Object = new UserDAL();
+$userDALObject = new UserDAL();
+$userControllerObject = new UserController();
 
 //When the button to log in is clicked, this function is called.
 if (isset($_POST['login_submit']))
@@ -74,6 +84,7 @@ if (isset($_POST['login_submit']))
   //if the database returns nothing, no user was found with this combination of email and password, and the user will be shown an errormessage.
   else{
     $loginError = 'This email and password combination does not exist';
+    $_SESSION['lgnEmail'] = $email;
     $_SESSION['lgnError'] = $loginError;
     header('location:UserloginView.php');
   }
@@ -93,38 +104,30 @@ if (isset($_POST['reg_submit'])) {
     //if the passwords match eachother..
     if ($pw1==$pw2) {
       //a function below is called to check if the password meet the requirements
-      if (CheckPassword($pw1)) {
+      if ($userControllerObject->CheckPassword($pw1)) {
         //if the password meets the reqs, a DAL function is called to check if the email does not already exists in the database.
-        $resultEmail = $Object->CheckEmailDB($email);
+        $resultEmail = $userDALObject->CheckEmailDB($email);
         if (empty($resultEmail)) {
           //if the email does not already exists, the user is entered in the database
-          $Object->InsertUserDB($fn, $ln, $email, hash('sha512', $pw1), date("Y/m/d"));
+          $userDALObject->InsertUserDB($fn, $ln, $email, hash('sha512', $pw1), date("Y/m/d"));
           //a session is made to tell the user he has registered succesfully when the user is redirected to the login page
           $_SESSION['regSucces'] = 'You have registered succesfully!';
           header('location:UserloginView.php');
         }
         //if the email already exists in the database, an error is shown
         else {
-          $loginError = 'This Email already exists.';
-          $_SESSION['regError'] = $loginError;
-          header('location:UserregisterView.php');
+          $userControllerObject->GiveRegError('This Email already exists.', $fn, $ln, $email);
         }
       }
     }
     //if the passwords do not match, an error is shown
     else {
-      $regError = "The passwords don't match!";
-      $_SESSION['regError'] = $regError;
-      header('location:UserregisterView.php');
+      $userControllerObject->GiveRegError("The passwords don't match!", $fn, $ln, $email);
     }
   }
   //if the captcha is not completed succesfully, and error is shown
   else {
-    $_SESSION['regError'] = 'Please confirm you are not a robot.';
-    header('location:UserregisterView.php');
+    $userControllerObject->GiveRegError('Please confirm you are not a robot.', $fn, $ln, $email);
   }
 }
-
-
-
 ?>
