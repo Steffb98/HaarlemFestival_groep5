@@ -141,7 +141,7 @@ $danceObject = new DanceController();
     </div>
 
     <form action= "../Controller/DanceAddToCartController.php" id="addToCart" class="modal fade" role="dialog" method="post">
-      <h4 jazz="dance2text" id="dancemodalheader">Would you like to add the following tickets to your cart?</h4>
+      <h4 dance="dance2text" id="dancemodalheader">Would you like to add the following tickets to your cart?</h4>
       <div  class= "modal-name" id= "modal-name" style="margin-left: 7vw; padding: 0.5vw;"></div>
       <div  class= "modal-time" id= "modal-time" style="margin-left: 7vw; padding: 0.5vw;"></div>
       <div  class= "modal-price" id= "modal-price" style="margin-left: 7vw; padding: 0.5vw;"></div>
