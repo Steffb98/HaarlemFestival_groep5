@@ -10,7 +10,7 @@ $indexObject = new IndexController(); ?>
       <ul>
         <li><a href="../IndexView.php" ><img  src="../Assets/Haarlem FestivalLogo2.png" alt="logo" class="logo"></a></li>
         <li><a href="JazzView.php"><p class="navbartext" id="navbarjazztext">Jazz Festival</p></a></li>
-        <li><a href="#dancefestival"><p class="navbartext" id="navbardancetext">Dance Festival</p></a></li>
+        <li><a href="danceView.php"><p class="navbartext" id="navbardancetext">Dance Festival</p></a></li>
         <li><a href="food.php"><p class="navbartext" id="navbarfoodtext">Food Festival</p></a></li>
         <li><a href="ContactView.php" id="contact"><p class="navbartext" id="navbarcontacttext">Contact</p></a></li>
         <li><a href="#updates"><p class="navbartext" id="navbarnewstext">News and Updates</p></a></li>
