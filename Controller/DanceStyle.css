@@ -1,0 +1,249 @@
+body
+{
+  background: url(../Assets/DanceBG.jpg);
+  height: 100%;
+  background-position: center;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  background-size: cover;
+  margin:0;
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+}
+
+#DanceNavbar{
+  position: relative;
+}
+
+#DanceFooter{
+  position: relative;
+  top:80vw;
+}
+
+.section{
+  position: absolute;
+  width:80vw;
+  margin-left:10vw;
+  background-color: rgba(10, 10, 10, .8);
+}
+
+.header
+{
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(../Assets/DanceHD.jpg);
+    background-position:50% 80%;
+    background-size: cover;
+    height: 15vw;
+    text-align: center;
+    padding-top:10vw;
+}
+
+#introdancetitle{
+  font-size:3vw;
+  text-align: center;
+  color: white;
+  font-weight: 300;
+  margin: 10;
+}
+
+#introdancepage{
+  padding:.5vw 1.5vw;
+  font-weight:300;
+  font-size: 1.5vw;
+  top:28vw;
+  text-align: center;
+  color: white;
+  width: 80vw;
+}
+
+#dancedjbanner{
+  position: absolute;
+  top:46vw;
+  cursor: pointer;
+  text-align: center;
+  color: white;
+}
+
+#MTDJtitle{
+  font-size: 3vw;
+  margin-bottom: -1vw;
+  font-weight:300;
+}
+
+#MTDJpopout{
+  position: absolute;
+  top:55vw;
+  height: auto;
+  padding-top: 3vw;
+}
+
+.MTDJDancerows{
+  margin-left:3vw;
+}
+
+.MTDJspecificdj{
+  position: relative;
+  height: auto;
+  width:13vw;
+  display: inline-block;
+  margin-left:0;
+}
+
+.fotodjs{
+  width:13vw;
+  height:12vw;
+}
+
+.MTDJdancenamebackground{
+  height:2.5vw;
+  background: rgba(80, 80, 80, 1);
+  width:100%;
+  font-size:1.1vw;
+  margin-top:-.15vw;
+  text-align: center;
+}
+
+.MTDJspecificname{
+  color: white;
+  text-align: center;
+  margin-top: 1vw;
+}
+
+#dancedjrow{
+  margin-right:2vw;
+}
+
+#date
+{
+  height: 15vw;
+  top: 54vw;
+}
+
+.btn
+{
+  background-color: #E2E2E2;
+  border: 0.1vw solid black;
+  color: black;
+  margin-left: 7.5vw;
+  margin-right: auto;
+  text-align: center;
+  font-size: 1.2vw;
+  width: 8vw;
+  height: 8vw;
+}
+.btn:hover,
+.btn:focus
+{
+  border-color: currentColor;
+  background-color: white;
+}
+
+.dancetext
+{
+  color: white;
+  font-weight: 300;
+}
+
+.dance2text{
+  padding:.5vw 1.5vw;
+  font-weight:300;
+  font-size: 1.5vw;
+}
+
+#danceticketcontainerreg, #danceticketcontainerregcombi{
+  position: absolute;
+  top:70vw;
+  height: auto;
+  display:inline-block;
+}
+
+#danceticketcontainersearch{
+  top:123.5vw;
+  height:16vw;
+}
+
+#danceticketdate, #danceticketdateCombi{
+  font-size:3vw;
+}
+
+.dancetickettable{
+  margin-left:4vw;
+  margin-top:-1.5vw;
+  color: white;
+  font-weight: 300;
+}
+
+.dancetickettable th, td{
+  height:3vw;
+  text-align: center;
+  color: white;
+  font-weight: 300;
+}
+
+.dancetickettable th{
+  font-size:1.8vw;
+  font-weight: 400;
+  color: white;
+  font-weight: 300;
+}
+
+.dancetickettable td{
+  font-size:1.5vw;
+  font-weight: 300;
+  color: white;
+  font-weight: 300;
+}
+
+#danceticketcontainerreg table{
+  width:70vw;
+}
+
+#danceticketshoppingcart {
+  width:3vw;
+  padding:0;
+  margin-top:.5vw;
+}
+
+.dancebuttonticket, .dancebuttonticketCombi{
+  border:none;
+  background: transparent;
+  padding:0;
+}
+
+.danceticketamount{
+  width:2.5vw;
+}
+
+#addToCart{
+  color:#111;
+  font-weight: 300;
+}
+
+.confirmbtn
+{
+  margin-top: 2vw;
+  background-color: green;
+  padding: 1vw 0.5vw;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+}
+
+.cancelbtn
+{
+  margin-left: 3vw;
+  margin-top: 2vw;
+  padding: 1vw 0.5vw;
+  background-color: red;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+}
+
+#dancemodalheader{
+  font-size:1.3vw;
+  text-align: center;ss
+}
