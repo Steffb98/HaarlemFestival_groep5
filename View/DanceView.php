@@ -241,7 +241,6 @@ $(document).ready(function(){
 
 function Change(name,id)
 {
-  date = id;
   document.getElementById("danceticketdate").innerHTML = name;
   document.getElementsByTagName("table")[0].setAttribute("id",id);
 
