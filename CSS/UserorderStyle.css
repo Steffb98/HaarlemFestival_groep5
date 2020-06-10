@@ -58,7 +58,7 @@ body{
 
 #footer{
   position: relative;
-  top:43vw;
+  top:50vw;
 }
 
 #navbar{
@@ -77,4 +77,17 @@ body{
   left:20vw;
   right:18vw;
   top:25vh;
+}
+.cart{
+
+  position: relative;
+  top:45vw;
+  left: 45vw;
+  display: inline-block;
+  background-color: green;
+  padding: 1vw 0.5vw;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border: none;
 }

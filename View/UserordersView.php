@@ -21,6 +21,7 @@ $tickets = $userObject->GetTicketsWithUserID($userID);
     <?php include_once('NavbarView.php'); ?>
   </div>
   <h3 class="UserOrderText" id="Yourtickets">Your tickets</h3>
+
   <!-- The 'cardholder' where all the users tickets are displayed. -->
   <div class="cardholder"><p class="UserOrderText" id="NoTicketText"><?php
     //If the user does not have any tickets, a message is displayed with information on where to purchase tickets
@@ -84,6 +85,7 @@ $tickets = $userObject->GetTicketsWithUserID($userID);
         </div>
       <?php } ?>
     </div>
+      <button type="button" class="cart">Download pdf</button>
 
     <!-- the footer is displayed here -->
     <div id="footer">

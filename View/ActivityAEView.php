@@ -1,5 +1,6 @@
-<!DOCTYPE html>
 <?php
+ob_start();
+require_once('../Model/ActivityModel.php');
 session_start();
 include_once('SideBars.php');
 require('../Controller/ActivityAEController.php');
@@ -9,7 +10,9 @@ $activityAE = new ActivityAE;
 if($loggedInUser->Function != 3){
   header('location: DashboardView.php');
 }
+ob_end_flush();
 ?>
+<!DOCTYPE html>
 <html>
 <head>
   <title>CMS Edit Activity</title>
@@ -83,15 +86,17 @@ if($loggedInUser->Function != 3){
       <button type="button" name="exit" onclick="CloseEditPanel()" id="ExitButton">X</button>
       <form method="post">
         <?php
-        if(isset($_SESSION['ActivityAEEditActivity'])) {$editActivity = $_SESSION['ActivityAEEditActivity'];}
+        if(isset($_SESSION['ActivityAEEditActivity'])) {$editActivity = $_SESSION['ActivityAEEditActivity'];
+//            echo '<pre>'. var_export($_SESSION['ActivityAEEditActivity'],true).'</pre>';
+        }
         if(isset($_SESSION['ActivityAECAErr'])) {$editActivityErr = $_SESSION['ActivityAECAErr'];}
         ?>
-        <p>Activity Description <input type="text" name="AcDescription" value="<?php if(isset($editActivity)){echo $editActivity->Description;} ?>"required></p>
-        <p>Date <input type="text" name="AcDate" placeholder="dd-mm-yyyy" value="<?php if(isset($editActivity)){echo date("d-m-Y", strtotime($editActivity->Time));}?>" required></p>
-        <p>StartTime <input type="text" name="AcStartTime" placeholder="hh-mm" value="<?php if(isset($editActivity)){echo date("H:i", strtotime($editActivity->Time));
+          <p>Activity Description <input type="text" name="AcDescription" value="<?php if(isset($editActivity)){echo $editActivity->getDescription();} ?>"required></p>
+        <p>Date <input type="text" name="AcDate" placeholder="dd-mm-yyyy" value="<?php if(isset($editActivity)){echo date("d-m-Y", strtotime($editActivity->getTime()));}?>" required></p>
+        <p>StartTime <input type="text" name="AcStartTime" placeholder="hh-mm" value="<?php if(isset($editActivity)){echo date("H:i", strtotime($editActivity->getTime()));
         }?>" required></p>
-        <p>Volunteers req. <input type="text" name="AcVolReq" value="<?php if(isset($editActivity)){echo $editActivity->AmountOfVolunteers;}?>" required></p>
-        <p>Location <input type="text" name="AcLocation" value="<?php if(isset($editActivity)){echo $editActivity->Location;}?>" required></p>
+        <p>Volunteers req. <input type="text" name="AcVolReq" value="<?php if(isset($editActivity)){echo $editActivity->getAmountOfVolunteers();}?>" required></p>
+        <p>Location <input type="text" name="AcLocation" value="<?php if(isset($editActivity)){echo $editActivity->getLocation();}?>" required></p>
         <p id="CAError"><?php if(isset($_SESSION['ActivityAECAErr'])){echo $editActivityErr;} ?></p> <!-- change activity text neerzettten ipv newactivyt text-->
         <input type="submit" name="CASubmit" value="Change">
         <input type="submit" name="Delete" value="Delete" formnovalidate>
@@ -124,17 +129,17 @@ if a blue volunteers is pressed it will turn white and vice versa-->
                 <tr>
                   <td>
                     <form method="post">
-                      <input type="submit" name="AssignVolunteerName" value="<?php echo $key->FirstName." ".$key->LastName;?>"
+                      <input type="submit" name="AssignVolunteerName" value="<?php echo $key->getFirstName()." ".$key->getLastName();?>"
                       <?php foreach ($volunteersByActivity as $key2){
-                        if($key->VolunteerID == $key2->VolunteerID){
+                        if($key->getVolunteerId() == $key2->VolunteerID){
                           echo "style=background-color:#6bdbdb";
                         }
                       }?>>
-                      <input type="hidden" name="AssignVolunteerId" value="<?php echo $key->VolunteerID ;?>">
+                      <input type="hidden" name="AssignVolunteerId" value="<?php echo $key->getVolunteerID() ;?>">
                     </form>
                   </td>
-                  <td><?php echo $key->Function; ?></td>
-                  <td><?php echo $key->Activities; ?></td>
+                  <td><?php echo $key->getFunction(); ?></td>
+                  <td><?php echo $key->getAmountOfActivities(); ?></td>
                 </tr>
               <?php }
             }?>
@@ -186,4 +191,4 @@ if a blue volunteers is pressed it will turn white and vice versa-->
     assignPopup.style.opacity = "0.5";
   }
   </script>
-  </html>
+</html>
