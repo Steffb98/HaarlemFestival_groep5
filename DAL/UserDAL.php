@@ -126,7 +126,7 @@ class UserDAL{
 
       $stmt = $mysqli->stmt_init();
       $stmt->prepare("SELECT LocationID, StartTime, EndTime, DJID FROM DJSessions WHERE DSessionID = ?");
-      $stmt->bind_param("i", $ticket->getSessionID);
+      $stmt->bind_param("i", $sessionID);
       $stmt->execute();
       $result = mysqli_fetch_object($stmt->get_result());
 
@@ -206,9 +206,10 @@ class UserDAL{
     //if the ticket is for a dj, the name and img are received from the dj table
     public function GetNameAndIMGDJDB($ticket){
       global $mysqli;
+      $eventId = $ticket->getEventID();
       $stmt = $mysqli->stmt_init();
       $stmt->prepare("SELECT Name, IMG FROM DJ WHERE DJID = ?");
-      $stmt->bind_param("i", $ticket->getEventID);
+      $stmt->bind_param("i", $eventId);
       $stmt->execute();
       $result = mysqli_fetch_object($stmt->get_result());
 
