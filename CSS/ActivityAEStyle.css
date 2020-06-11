@@ -220,14 +220,13 @@ body{
   top: 48vw;
   width: 77vw;
   height: 20vw;
-
   /*disabled*/
   opacity: 0.5;
   pointer-events: none;
 }
 
 .scrolltable2{
-  height: 16vw;
+  height: 14vw;
   overflow: auto;
   display: fixed;
   position: relative;
