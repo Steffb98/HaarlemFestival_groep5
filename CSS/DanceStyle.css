@@ -203,6 +203,11 @@ body
   margin-top:.5vw;
 }
 
+#ticketstext {
+  color : white;
+  font-size : 1.5vw;
+}
+
 .dancebuttonticket, .dancebuttonticketCombi{
   border:none;
   background: transparent;
